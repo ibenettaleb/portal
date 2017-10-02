@@ -33,24 +33,31 @@ class ProjectController extends Controller
         $search = null;
 
         $user = Auth::user();
-        $listproject = Project::all();
-        $username = Auth::user()->name;
+        $groups = $user->ldap->getGroups();
 
+        $listproject = Project::all();
+
+        /*$username = Auth::user()->name;
         $search = Adldap::search()->select(['department'])->where('cn', '=', $username)->get();
         $search = json_decode($search, true);
-        $search = $search[0]['department'];
+        $search = $search[0]['department'];*/
+
+        $myGroup = '';
 
         $listdepartment = Department::all();
 
-        foreach ($listdepartment as $department) {
-            if ($search[0] == $department->name) {
-                $departmentId = $department->id;
+        foreach ($groups as $group) {
+            foreach ($listdepartment as $department) {
+                if ($group->getCommonName() == $department->name) {
+                    $departmentId = $department->id;
+                    $myGroup = $department->name;
+                }
             }
         }
         JavaScript::put([
             'departmentId' => $departmentId
         ]);
-        return view('project.projects', ['projects' => $listproject, 'user' => $user, 'search' => $search]);
+        return view('project.projects', ['projects' => $listproject, 'user' => $user, 'myGroup' => $myGroup]);
     }
 
     //Displays the project creation form
@@ -95,7 +102,7 @@ class ProjectController extends Controller
 
         session()->flash('success', 'The APP has been well registered !!');
 
-        return redirect('project');
+        return redirect('app');
     }
 
     public function edit($id) {
@@ -141,7 +148,7 @@ class ProjectController extends Controller
 
         session()->flash('success', 'The APP has been modified !!');
 
-        return redirect('project');
+        return redirect('app');
     } 
 
     public function destroy(Request $request) {

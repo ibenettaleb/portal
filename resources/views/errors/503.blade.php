@@ -15,7 +15,7 @@
 			    	<button class="btn btn-primary btn-round" style="box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.2);     background-color: #F06543;" onclick="goBack()">
 			    		<i class="fa fa-angle-double-left" aria-hidden="true"></i> Go Back
 			    	</button>
-			    	<a class="btn btn-primary btn-round" style="box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.2);     background-color: #F06543;" href="{{ url('project') }}">
+			    	<a class="btn btn-primary btn-round" style="box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.2);     background-color: #F06543;" href="{{ url('app') }}">
 			    		Go Home <i class="fa fa-angle-double-right" aria-hidden="true"></i>
 			    	</a>
 			    </div>

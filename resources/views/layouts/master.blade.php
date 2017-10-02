@@ -7,7 +7,7 @@
 	<meta name="viewport" content="width=device-width">
 	<title>UM6P Portal</title>
 	<link rel="icon" type="image/png" href="{{ asset('assets/img/favicon.png') }}">
-	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" />
 	<link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
 	<link rel="stylesheet" href="{{ asset('assets/css/bootstrap-duallistbox.css') }}">
 	<link rel="stylesheet" href="{{ asset('assets/css/now-ui-kit.css') }}">
@@ -15,6 +15,7 @@
 	<link rel="stylesheet" href="{{ asset('assets/css/font-awesome/css/font-awesome.min.css') }}">
 	<link rel="stylesheet" href="{{ asset('assets/css/sweetalert.css') }}">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" />
+	<link rel="stylesheet" href="{{ asset('assets/css/custom.css')  }}">
 	
 @yield('content')
 

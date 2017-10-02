@@ -15,7 +15,7 @@ Auth::routes();
 
 Route::get('/', 'ProjectController@index');
 
-Route::resource('project', 'ProjectController');
+Route::resource('app', 'ProjectController');
 
 //Other Route
 Route::get('destroy','ProjectController@destroy');
