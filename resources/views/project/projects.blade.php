@@ -93,7 +93,7 @@
                                     <!-- Start End Search-->
                                     @if($user->ldap->inGroup('Admin-Portal'))
                                     <div class="col-lg-4 col-sm-12">
-                                        <a href="{{ url('project/create') }}" class="btn btn-success btn-round float-right">
+                                        <a href="{{ url('app/create') }}" class="btn btn-success btn-round float-right">
                                             <i class="fa fa-plus" style="padding-right: 10px;" aria-hidden="true"></i> Add New APP
                                         </a>
                                     </div>
@@ -107,13 +107,17 @@
                             @if(!$user->ldap->inGroup('Admin-Portal'))
                             @foreach($projects->sortByDesc('created_at') as $project)
                                 @foreach($project->find($project->id)->departments as $department)
-                                    @if($department->name == $search[0] || $department->id === 1)
+                                    @if($department->name == $myGroup || $department->id === 1)
                                         <div class="col-lg-4 col-md-6 col-sm-12 jsearch-row">
                                             <div class="card">
-                                                <img class="card-img-top" src="uploads/images/{{ $project -> image }}" alt="{{ $project -> image }}" uk-scrollspy="cls: uk-animation-kenburns; repeat: true">
-                                                <div id="card" class="card-block margin-card fixed-card">
-                                                    <h4 class="card-title truncate-title jsearch-field">{{ $project -> title }}</h4>
-                                                    <p class="card-text truncate-description jsearch-field text-center" >{{ $project -> description }}</p>
+                                                <div class="cardhover">
+                                                    <div class="imgBx">
+                                                        <img class="card-img-top" src="uploads/images/{{ $project -> image }}" alt="{{ $project -> image }}" uk-scrollspy="cls: uk-animation-kenburns; repeat: true">
+                                                    </div>
+                                                    <div id="card" class="card-block margin-card fixed-card">
+                                                        <h4 class="card-title truncate-title jsearch-field">{{ $project -> title }}</h4>
+                                                        <p class="card-text truncate-description jsearch-field text-center" >{{ $project -> description }}</p>
+                                                    </div>
                                                 </div>
                                                 <div class="card-footer">
                                                     <hr />
@@ -124,6 +128,10 @@
                                                         </h6>
                                                     </a>
                                                 </div>
+                                                <div class="details">
+                                                    <h4>{{ $project -> title }}</h4>
+                                                    <p class="truncate-description-hover">{{ $project -> description }}</p>
+                                                </div>
                                             </div>
                                         </div>
                                     @endif
@@ -133,18 +141,20 @@
                                 @foreach($projects->sortByDesc('created_at') as $project)
                                     <div class="col-lg-4 col-md-6 col-sm-12 jsearch-row">
                                         <div class="card">
-                                            <img class="card-img-top" src="uploads/images/{{ $project -> image }}" alt="{{ $project -> image }}">
+                                            <div class="imgBx">
+                                                <img class="card-img-top" src="uploads/images/{{ $project -> image }}" alt="{{ $project -> image }}">
+                                            </div>
                                             <div id="card" class="card-block margin-card fixed-card">
                                                 <h4 class="card-title truncate-title jsearch-field">{{ $project -> title }}</h4>
                                                 <p class="card-text truncate-description jsearch-field text-center" >{{ $project -> description }}</p>
                                             </div>
                                             <div class="card-footer">
                                                 <hr />
-                                                <form class="form" id="deletePortal" action="{{ url('project/'.$project -> id) }}" method="post">
+                                                <form class="form" id="deletePortal" action="{{ url('app/'.$project -> id) }}" method="post">
                                                     {{ csrf_field() }}
                                                     {{ method_field('DELETE') }}
                                                 </form>
-                                                <a href="{{ url('project/'.$project -> id.'/edit') }}" class="btn btn-primary btn-icon  btn-icon-mini btn-round" data-toggle="tooltip" data-placement="top" title="Edit APP">
+                                                <a href="{{ url('app/'.$project -> id.'/edit') }}" class="btn btn-primary btn-icon  btn-icon-mini btn-round" data-toggle="tooltip" data-placement="top" title="Edit APP">
                                                     <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                                                 </a>
                                                 <button id="delete" type="button" data-id="{{$project->id}}" class="btn btn-danger btn-icon  btn-icon-mini btn-round" data-toggle="tooltip" data-placement="top" title="Delete APP">
@@ -156,6 +166,10 @@
                                                         <i class="fa fa-external-link" aria-hidden="true"></i>
                                                     </h6>
                                                 </a>
+                                            </div>
+                                            <div class="details">
+                                                <h4>{{ $project -> title }}</h4>
+                                                <p class="truncate-description-hover">{{ $project -> description }}</p>
                                             </div>
                                         </div>
                                     </div>

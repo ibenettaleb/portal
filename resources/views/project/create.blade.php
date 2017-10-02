@@ -56,7 +56,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-12">
-                            <a href="{{ url('project') }}" class="btn btn-primary btn-round float-right">
+                            <a href="{{ url('app') }}" class="btn btn-primary btn-round float-right">
                                 <i class="fa fa-chevron-left" aria-hidden="true"></i> Back
                             </a>
                         </div>
@@ -66,14 +66,14 @@
                             <h5 style="margin-bottom: -3px;">Create New APP</h5>
                             <small class="text-danger">Please Enter all required field</small>
                             <div class="space-10"></div>
-                            <form class="form" id="createForm" action="{{ url('project') }}" method="post" enctype="multipart/form-data">
+                            <form class="form" id="createForm" action="{{ url('app') }}" method="post" enctype="multipart/form-data">
                                 {{ csrf_field() }}
                                 <div>
                                     <div class="input-group">
                                         <span style="padding-left: 15px;" class="input-group-addon">
                                             <i class="fa fa-align-center" aria-hidden="true"></i>
                                         </span>
-                                        <input name="title" id="title" type="text" class="form-control" placeholder="Title..." required="required" />
+                                        <input name="title" id="title" type="text" class="form-control" placeholder="Type a Title..." required="required" />
                                     </div>
                                     <div class="space-10"></div>
                                     <div class="input-group">
@@ -89,7 +89,7 @@
                                         </div>
                                     </div>
                                     <div class="space-10"></div>
-				    <br id="selectspace" style="display: none;" />
+                                    <br id="selectspace" style="display: none;"/>
                                     <div>
                                         <span>Select Department<br /></span>
                                         <select class="form-control m-bot15 js-example-basic-multiple" name="selectedDepartment[]" multiple="multiple" style="width: 338px;">
@@ -102,7 +102,7 @@
                                         <span>(By default : All Department)</span>
                                     </div>
                                     <div class="space-10"></div>
-                                    <div> 
+                                    <div>
                                         <label class="custom-file">
                                           <input type="file" id="project_image" name="project_image" class="custom-file-input" aria-describedby="fileHelp">
                                           <span class="custom-file-control form-control-file"></span>
@@ -113,10 +113,10 @@
                                     <div class="send-button">
                                         <div class="row">
                                             <div class="col-sm-6">
-                                                <button class="btn btn-primary btn-round btn-block btn-lg" id="create" type="submit" >Create Project</button>
+                                                <button class="btn btn-primary btn-round btn-simple btn-block btn-lg" id="create" type="submit" >Create Project</button>
                                             </div>
                                             <div class="col-sm-6">
-                                                <a href="{{ url('project') }}" class="btn btn-primary btn-round btn-simple btn-block btn-lg">Cancel</a>
+                                                <a href="{{ url('app') }}" class="btn btn-primary btn-round btn-danger btn-simple btn-block btn-lg">Cancel</a>
                                             </div>
                                         </div>
                                     </div>

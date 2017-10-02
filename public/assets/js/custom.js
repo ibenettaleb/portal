@@ -56,9 +56,16 @@ $(function () {
     $('.truncate-description').succinct ({
         size: 70
     });
+    $('.truncate-description-hover').succinct ({
+        size: 285
+    });
 });
 
 $('.alert-success').fadeIn().delay(4000).fadeOut('slow');
+
+$(document).on('click', 'button#create', function () {
+    $("#selectspace").css("display", "block");
+});
 
 $(document).on('click', 'button#delete', function(e) {
 	e.preventDefault();

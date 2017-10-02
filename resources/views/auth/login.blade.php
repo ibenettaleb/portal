@@ -2,7 +2,7 @@
 
 @section('content')
 </head>
-<body class="login-page" style="margin-bottom:0px;">
+<body class="login-page" style="margin-bottom: auto">
     <div class="page-header" filter-color="orange">
         <div class="page-header-image" style="background-image:url({{ asset('assets/img/login.jpg') }})"></div>
         <div class="container">
@@ -18,16 +18,17 @@
                         </div>
                         <div>
                             <div class="input-group form-group-no-border input-lg{{ $errors->has('username') ? ' has-error' : '' }}">
-				<span class="input-group-addon">
+                                <span class="input-group-addon">
                                     <i class="fa fa-envelope-o" aria-hidden="true"></i>
                                 </span>
-                                <input id="username" type="text" class="form-control" placeholder="E-mail Address..." name="username" value="{{ old('username') }}" required="required" autofocus />
+                                <input id="username" type="text" class="form-control" placeholder="E-mail Address..." name="username" value="{{ old('username') }}" required autofocus />
+
                             </div>
                             <div class="input-group form-group-no-border input-lg{{ $errors->has('password') ? ' has-error' : '' }}">
-				<span class="input-group-addon">
+                                <span class="input-group-addon">
                                     <i class="now-ui-icons ui-1_lock-circle-open"></i>
                                 </span>
-                                <input id="password" type="password" placeholder="Password..." class="form-control" name="password" required="required" />
+                                <input id="password" type="password" placeholder="Password..." class="form-control" name="password" required />
                             </div>
                             @if ($errors->has('username') || $errors->has('password'))
                                 <div class="alert alert-danger" role="alert">
@@ -49,9 +50,6 @@
         </div>
          <footer>
             <div class="container">
-                <nav>
-                   
-                </nav>
                 <div class="copyright float-right">
                     &copy;
                     <script>

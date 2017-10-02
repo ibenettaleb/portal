@@ -56,7 +56,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-12">
-                            <a href="{{ url('project') }}" class="btn btn-primary btn-round float-right">
+                            <a href="{{ url('app') }}" class="btn btn-primary btn-round float-right">
                                 <i class="fa fa-chevron-left" aria-hidden="true"></i> Back
                             </a>
                         </div>
@@ -66,7 +66,7 @@
                             <h5 style="margin-bottom: -3px;">Edit APP</h5>
                             <small class="text-danger">Please Enter all required field</small>
                             <div class="space-10"></div>
-                            <form class="form" id="createForm" action="{{ url('project/'.$project -> id) }}" method="post" enctype="multipart/form-data">
+                            <form class="form" id="createForm" action="{{ url('app/'.$project -> id) }}" method="post" enctype="multipart/form-data">
                                 {{ csrf_field() }}
                                 <input type="hidden" name="_method" value="PUT" >
                                 <div>
@@ -114,10 +114,10 @@
                                     <div class="send-button">
                                         <div class="row">
                                             <div class="col-sm-6">
-                                                <button class="btn btn-primary btn-round btn-block btn-lg" id="update" type="submit" >Update Project</button>
+                                                <button class="btn btn-primary btn-round btn-simple btn-block btn-lg" id="update" type="submit" >Update Project</button>
                                             </div>
                                             <div class="col-sm-6">
-                                                <a href="{{ url('project') }}" class="btn btn-primary btn-round btn-simple btn-block btn-lg">Cancel</a>
+                                                <a href="{{ url('app') }}" class="btn btn-primary btn-round btn-danger btn-simple btn-block btn-lg">Cancel</a>
                                             </div>
                                         </div>
                                     </div>

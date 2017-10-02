@@ -15,7 +15,7 @@ $(function () {
         errorPlacement: function (error, element) {
             error.insertAfter(element.parent());
         }
-    })
+    });
 
     $("#createForm").validate ({
         rules: {
