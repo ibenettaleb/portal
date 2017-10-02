@@ -15,6 +15,7 @@
 	<link rel="stylesheet" href="{{ asset('assets/css/font-awesome/css/font-awesome.min.css') }}">
 	<link rel="stylesheet" href="{{ asset('assets/css/sweetalert.css') }}">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" />
+	<link rel="stylesheet" href="{{ asset('assets/css/custom.css')  }}">
 	
 @yield('content')
 

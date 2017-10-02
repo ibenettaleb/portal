@@ -28,7 +28,7 @@
   display: inline-block;
   direction: ltr;
   cursor: pointer;
-  border-radius: 30px;
+  border-radius: 10px;
   border: 0;
   position: relative;
   text-align: left;
@@ -1150,7 +1150,7 @@
 
 .btn-round {
   border-width: 1px;
-  border-radius: 30px !important;
+  border-radius: 10px !important;
   padding: 11px 23px; }
 .btn-round.btn-simple {
   padding: 10px 22px; }
@@ -1221,7 +1221,7 @@
 .form-control {
   background-color: transparent;
   border: 1px solid #E3E3E3;
-  border-radius: 30px;
+  border-radius: 10px;
   color: #2c2c2c;
   line-height: 1em;
   font-size: 0.8571em;
@@ -1339,7 +1339,7 @@
 .input-group-addon {
   background-color: #FFFFFF;
   border: 1px solid #E3E3E3;
-  border-radius: 30px;
+  border-radius: 10px;
   color: #555555;
   padding: -0.5rem 0 -0.5rem -0.3rem;
   -webkit-transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;

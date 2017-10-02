@@ -73,22 +73,23 @@
                                         <span style="padding-left: 15px;" class="input-group-addon">
                                             <i class="fa fa-align-center" aria-hidden="true"></i>
                                         </span>
-                                        <input name="title" id="title" type="text" class="form-control" placeholder="Title..." />
+                                        <input name="title" id="title" type="text" class="form-control" placeholder="Title..." required="required" />
                                     </div>
                                     <div class="space-10"></div>
                                     <div class="input-group">
                                         <span style="padding-left: 15px;" class="input-group-addon">
                                             <i class="fa fa-link" aria-hidden="true"></i>
                                         </span>
-                                        <input name="link" id="link" type="url" class="form-control" placeholder="https://link...">
+                                        <input name="link" id="link" type="url" class="form-control" placeholder="https://link..." required="required" />
                                     </div>
                                     <div class="space-10"></div>
                                     <div>
                                         <div class="textarea-container">
-                                            <textarea name="description" id="description" class="form-control" name="name" rows="4" cols="80" placeholder="Type a description..."></textarea>
+                                            <textarea name="description" id="description" class="form-control" name="name" rows="4" cols="80" placeholder="Type a description..." required="required"></textarea>
                                         </div>
                                     </div>
                                     <div class="space-10"></div>
+				    <br id="selectspace" style="display: none;" />
                                     <div>
                                         <span>Select Department<br /></span>
                                         <select class="form-control m-bot15 js-example-basic-multiple" name="selectedDepartment[]" multiple="multiple" style="width: 338px;">
@@ -112,7 +113,7 @@
                                     <div class="send-button">
                                         <div class="row">
                                             <div class="col-sm-6">
-                                                <button class="btn btn-primary btn-round btn-block btn-lg" type="submit" >Create Project</button>
+                                                <button class="btn btn-primary btn-round btn-block btn-lg" id="create" type="submit" >Create Project</button>
                                             </div>
                                             <div class="col-sm-6">
                                                 <a href="{{ url('project') }}" class="btn btn-primary btn-round btn-simple btn-block btn-lg">Cancel</a>
@@ -131,9 +132,9 @@
                 <div class="copyright">
                     &copy;
                     <script>
-                        document.write(new Date().getFullYear())
-                    </script>, Designed by
-                    Abdeljalil BENETTALEB.
+                       document.write(new Date().getFullYear())
+                    </script>, Powered by
+                    <a href="http://10.13.27.187/it-team-um6p/" target="_blank">UM6P IT-Services</a>.
                 </div>
             </div>
         </footer>

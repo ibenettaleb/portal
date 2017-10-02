@@ -186,8 +186,8 @@
                         &copy;
                         <script>
                             document.write(new Date().getFullYear())
-                        </script>, Designed by
-                        Abdeljalil BENETTALEB.
+                        </script>, Powered by
+                        <a href="http://10.13.27.187/it-team-um6p/" target="_blank">UM6P IT-Services</a>.
                     </div>
                 </div>
             </footer>

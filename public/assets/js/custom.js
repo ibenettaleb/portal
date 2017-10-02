@@ -9,6 +9,14 @@ $(".preloader").fadeOut(2000, function() {
 	$(".content").fadeIn(2000);
 });
 
+$(document).on('click', 'button#create', function () {
+    $("#selectspace").css("display", "block");
+});
+
+$(document).on('click', 'button#update', function () {
+    $("#selectspace2").css("display", "block");
+});
+
 $(document).ready(function () {
 	if (window.location.pathname == '/project/'+windowvar.id+'/edit') {
         var $options = $('#data option');

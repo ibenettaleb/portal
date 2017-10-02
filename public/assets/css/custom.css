@@ -1,0 +1,16 @@
+:required  {
+    background: url(https://cdn0.iconfinder.com/data/icons/fugue/icon/asterisk-small.png) no-repeat;
+    background-position:right top;
+}
+input.form-control {
+    border: 1px solid #e9e9e9;
+    border-radius: 10px;
+    resize: none;
+}
+.btn-round {
+  border-width: 1px;
+  border-radius: 10px !important;
+  padding: 11px 23px; }
+.form-control {
+    border-radius: 10px;
+}

@@ -90,7 +90,9 @@
                                         </div>
                                     </div>
                                     <div class="space-10"></div>
+				    <br id="selectspace2" style="display: none" />
                                     <div>
+                                        <span>Select Department<br /></span>
                                         <select class="form-control m-bot15 js-example-basic-multiple" id="data" name="selectedDepartment[]" multiple="multiple" style="width: 338px;">
                                             @if ($listdepartment->count())
                                                 @foreach($listdepartment as $department)
@@ -112,7 +114,7 @@
                                     <div class="send-button">
                                         <div class="row">
                                             <div class="col-sm-6">
-                                                <button class="btn btn-primary btn-round btn-block btn-lg" type="submit" >Update Project</button>
+                                                <button class="btn btn-primary btn-round btn-block btn-lg" id="update" type="submit" >Update Project</button>
                                             </div>
                                             <div class="col-sm-6">
                                                 <a href="{{ url('project') }}" class="btn btn-primary btn-round btn-simple btn-block btn-lg">Cancel</a>
@@ -130,10 +132,10 @@
             <div class="container">
                 <div class="copyright">
                     &copy;
-                    <script type="application/javascript">
-                        document.write(new Date().getFullYear());
-                    </script>, Designed by
-                    Abdeljalil BENETTALEB.
+                    <script>
+                        document.write(new Date().getFullYear())
+                    </script>, Powered by
+                    <a href="http://10.13.27.187/it-team-um6p/" target="_blank">UM6P IT-Services</a>.
                 </div>
             </div>
         </footer>
