@@ -46,6 +46,13 @@
                     </li>
                 </ul>
             </div>
+            <!--  Made With IT Services  -->
+            <div class="text-center">
+                <a href="http://10.13.27.187/it-team-um6p/" target="_blank" class="made-with-mk">
+                    <div class="brand">IT</div>
+                    <div class="made-with">Powered by <strong>IT-Services</strong></div>
+                </a>
+            </div>
         </div>
     </nav>
     @if($user->ldap->inGroup('Admin-Portal'))
@@ -128,17 +135,6 @@
                 </div>
             </div>
         </div>
-        <footer class="footer hidden-sm-down" data-background-color="black">
-            <div class="container">
-                <div class="copyright">
-                    &copy;
-                    <script>
-                        document.write(new Date().getFullYear())
-                    </script>, Powered by
-                    <a href="http://10.13.27.187/it-team-um6p/" target="_blank">UM6P IT-Services</a>.
-                </div>
-            </div>
-        </footer>
     </div>
     @else
     <div class="wrapper">

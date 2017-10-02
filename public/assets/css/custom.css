@@ -51,3 +51,66 @@ input.form-control {
     margin: 20px 0 0;
     color: #fff;
 }
+
+.made-with-mk {
+    width: 50px;
+    height: 50px;
+    display: block;
+    position: fixed;
+    z-index: 555;
+    bottom: 20px;
+    right: 20px;
+    border-radius: 10px;
+    background-color: rgba(234, 186, 107, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #FFFFFF;
+    cursor: pointer;
+    padding: 8px 0px 0px 16px;
+    white-space: nowrap;
+    overflow: hidden;
+    -webkit-transition: 0.55s cubic-bezier(0.6, 0, 0.4, 1);
+    -moz-transition: 0.55s cubic-bezier(0.6, 0, 0.4, 1);
+    -o-transition: 0.55s cubic-bezier(0.6, 0, 0.4, 1);
+    transition: 0.55s cubic-bezier(0.6, 0, 0.4, 1);
+}
+.made-with-mk:hover, .made-with-mk:active, .made-with-mk:focus {
+    width: 250px;
+    color: #FFFFFF;
+    transition-duration: .55s;
+    padding: 8px 0px 0px 16px;
+}
+.made-with-mk:hover .made-with, .made-with-mk:active .made-with, .made-with-mk:focus .made-with {
+    opacity: 1;
+}
+.made-with-mk:hover .brand, .made-with-mk:active .brand, .made-with-mk:focus .brand {
+    left: 0;
+}
+.made-with-mk .brand,
+.made-with-mk .made-with {
+    float: left;
+}
+.made-with-mk .brand {
+    position: relative;
+    top: 4px;
+    left: -1px;
+    letter-spacing: 1px;
+    vertical-align: middle;
+    font-size: 16px;
+    font-weight: 600;
+}
+.made-with-mk .made-with {
+    color: rgba(255, 255, 255, 0.6);
+    position: absolute;
+    left: 58px;
+    top: 14px;
+    opacity: 0;
+    margin: 0;
+    -webkit-transition: 0.55s cubic-bezier(0.6, 0, 0.4, 1);
+    -moz-transition: 0.55s cubic-bezier(0.6, 0, 0.4, 1);
+    -o-transition: 0.55s cubic-bezier(0.6, 0, 0.4, 1);
+    transition: 0.55s cubic-bezier(0.6, 0, 0.4, 1);
+}
+.made-with-mk .made-with strong {
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.9);
+}
