@@ -1,7 +1,7 @@
 /*!
 
  =========================================================
- * Now-ui-kit - v1.0.0
+ * Now-ui-kit - v2.0.0
  =========================================================
 
  * Product Page: http://www.creative-tim.com/product/now-ui-kit
@@ -12,7 +12,7 @@
 
  =========================================================
 
- * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+ * The above copyright notic and this permission notice shall be included in all copies or substantial portions of the Software.
 
  */
 /*     brand Colors              */
@@ -984,8 +984,8 @@
   color: #00ABE7;
   border-color: #00ABE7; }
 .btn-primary.btn-simple:hover, .btn-primary.btn-simple:focus, .btn-primary.btn-simple:active {
-  background-color: transparent;
-  color: #2DC7FF;
+  background-color: #2DC7FF;
+  color: #FFF;
   border-color: #2DC7FF; }
 .btn-primary.btn-link {
   color: #2DC7FF; }
@@ -1084,8 +1084,8 @@
   color: #FF3636;
   border-color: #FF3636; }
 .btn-danger.btn-simple:hover, .btn-danger.btn-simple:focus, .btn-danger.btn-simple:active {
-  background-color: transparent;
-  color: #ff1d1d;
+  background-color: #FF1D1D;
+  color: #FFF;
   border-color: #ff1d1d; }
 .btn-danger.btn-link {
   color: #FF3636; }

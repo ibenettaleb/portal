@@ -18,7 +18,7 @@ $(document).on('click', 'button#update', function () {
 });
 
 $(document).ready(function () {
-	if (window.location.pathname == '/project/'+windowvar.id+'/edit') {
+	if (window.location.pathname == '/app/'+windowvar.id+'/edit') {
         var $options = $('#data option');
         i = 0;
         size = windowvar.selectedDepartment.length;

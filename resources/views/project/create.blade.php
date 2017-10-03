@@ -63,14 +63,14 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-12">
-                            <a href="{{ url('app') }}" class="btn btn-primary btn-round float-right">
+                            <a href="{{ url('app') }}" class="btn btn-primary btn-round float-left">
                                 <i class="fa fa-chevron-left" aria-hidden="true"></i> Back
                             </a>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-8">
-                            <h5 style="margin-bottom: -3px;">Create New APP</h5>
+                            <h5 style="margin-bottom: -3px; margin-top:7px;">Create New APP</h5>
                             <small class="text-danger">Please Enter all required field</small>
                             <div class="space-10"></div>
                             <form class="form" id="createForm" action="{{ url('app') }}" method="post" enctype="multipart/form-data">
@@ -120,10 +120,10 @@
                                     <div class="send-button">
                                         <div class="row">
                                             <div class="col-sm-6">
-                                                <button class="btn btn-primary btn-round btn-simple btn-block btn-lg" id="create" type="submit" >Create Project</button>
+                                                <button class="btn btn-primary btn-round btn-simple btn-block btn-lg button-create" id="create" type="submit" >Create Project</button>
                                             </div>
                                             <div class="col-sm-6">
-                                                <a href="{{ url('app') }}" class="btn btn-primary btn-round btn-danger btn-simple btn-block btn-lg">Cancel</a>
+                                                <a href="{{ url('app') }}" class="btn btn-primary btn-round btn-simple btn-danger btn-block btn-lg button-cancel">Cancel</a>
                                             </div>
                                         </div>
                                     </div>
