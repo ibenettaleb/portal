@@ -71,7 +71,7 @@
                     <div class="row">
                         <div class="col-sm-8">
                             <h5 style="margin-bottom: -3px; margin-top:7px;">Create New APP</h5>
-                            <small class="text-danger">Please Enter all required field</small>
+                            <small class="text-danger">Please Enter all required field <img src="{{asset('assets/img/required.png')}}" alt="required"></small>
                             <div class="space-10"></div>
                             <form class="form" id="createForm" action="{{ url('app') }}" method="post" enctype="multipart/form-data">
                                 {{ csrf_field() }}
