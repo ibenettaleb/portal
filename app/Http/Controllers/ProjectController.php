@@ -105,7 +105,10 @@ class ProjectController extends Controller
 
         session()->flash('success', 'The APP has been well registered !!');
 
-        $user->notify(new RepliedToThread($newProject));
+        $getAllUser = User::get();
+        foreach ($getAllUser as $getUser) {
+            $getUser->notify(new RepliedToThread($newProject));
+        }
 
         return redirect('app');
     }

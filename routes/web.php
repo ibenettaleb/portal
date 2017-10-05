@@ -25,6 +25,7 @@ Route::get('pagenotfound', ['as' => 'notfound', 'uses' => 'ProjectController@pag
 Route::get('/markAsRead', function () {
     $user = \Illuminate\Support\Facades\Auth::user();
     $user->unreadNotifications->markAsRead();
+    $user->notifications()->delete();
 });
 
 
