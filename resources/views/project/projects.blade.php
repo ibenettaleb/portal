@@ -34,7 +34,21 @@
                                 Welcome, {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
                         </li>
-                        <li class="hidden-sm-down" style="padding: 0px 20px;">
+                        <li class="dropdown" style="padding: 0px 20px;" onclick="markNotificationAsRead({{count($user->unreadNotifications)}})">
+                            <a href="#Notifications" class="dropdown-toggle" data-toggle="dropdown" id="dropdownlist">
+                                <i class="fa fa-bell-o" aria-hidden="true"></i>
+                                <span class="badge round" id="countNotiy">{{count($user->unreadNotifications)}}</span>
+                                Notifications
+                                <ul class="dropdown-menu" aria-labelledby="dropdownlist" style="padding-top: 0px;">
+                                    @forelse($user->unreadNotifications as $notification)
+                                        <a class="dropdown-item" href="#">New APP <span style="color: #18ce0f;">Created</span> : <br />{{$notification->data['newProject']['title']}}<br /><span class="blockquote-footer float-right">by {{$notification->data['user']['name']}}</span></a>
+                                        @empty
+                                        <a class="dropdown-item" href="#">No unread Notifications</a>
+                                    @endforelse
+                                </ul>
+                            </a>
+                        </li>
+                        <li class="hidden-sm-down">
                             <a href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
                                             document.getElementById('logout-form').submit();">

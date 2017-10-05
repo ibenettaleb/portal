@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Notifications\RepliedToThread;
 use Illuminate\Http\Request;
 use App\Project;
 use App\Department;
+use Illuminate\Notifications\Notification;
 use Image;
 use App\User;
 use Auth;
@@ -26,11 +28,10 @@ class ProjectController extends Controller
         $this->project = $project;
     }
 
-    //Project List
+    //APP List
     public function index() {
 
         $departmentId = 0;
-        $search = null;
 
         $user = Auth::user();
         $groups = $user->ldap->getGroups();
@@ -55,8 +56,10 @@ class ProjectController extends Controller
             }
         }
         JavaScript::put([
-            'departmentId' => $departmentId
+            'departmentId' => $departmentId,
+            'count' => count($user->unreadNotifications)
         ]);
+
         return view('project.projects', ['projects' => $listproject, 'user' => $user, 'myGroup' => $myGroup]);
     }
 
@@ -101,6 +104,8 @@ class ProjectController extends Controller
         }
 
         session()->flash('success', 'The APP has been well registered !!');
+
+        $user->notify(new RepliedToThread($newProject));
 
         return redirect('app');
     }

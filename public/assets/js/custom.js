@@ -32,6 +32,9 @@ $(document).ready(function () {
         }
 	}
 	$('.js-example-basic-multiple').select2();
+	if (windowvar.count == 0) {
+        $("#countNotiy").css("display", "none");
+    }
 });
 
 
@@ -98,5 +101,13 @@ $(document).on('click', 'button#delete', function(e) {
 	  }
 	});
 });
+
+function markNotificationAsRead(notificationCount) {
+    if (notificationCount !== '0') {
+        $.get('/markAsRead');
+    }
+}
+
+
 
 
