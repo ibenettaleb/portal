@@ -13,9 +13,10 @@
 
 Auth::routes();
 
-Route::get('/', 'ProjectController@index');
+Route::group(['middleware' => 'revalidate'], function(){
 
 Route::resource('app', 'ProjectController');
+Route::get('/', 'ProjectController@index');
 
 //Other Route
 Route::get('destroy','ProjectController@destroy');
@@ -28,4 +29,9 @@ Route::get('/markAsRead', function () {
     $user->notifications()->delete();
 });
 
+Route::get('/Notifications', function () {
+    $user = \Illuminate\Support\Facades\Auth::user();
+    return $user->unreadNotifications;
+});
 
+});

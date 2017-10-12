@@ -20,15 +20,13 @@ $(function () {
     $("#createForm").validate ({
         rules: {
             title: {
-                required: true,
-                minlength: 10
+                required: true
             },
             link: {
                 required: true
             },
             description: {
-                required: true,
-                minlength: 50
+                required: true
             }
         },
         messages: {

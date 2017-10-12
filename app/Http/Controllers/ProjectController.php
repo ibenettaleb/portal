@@ -30,7 +30,6 @@ class ProjectController extends Controller
 
     //APP List
     public function index() {
-
         $departmentId = 0;
 
         $user = Auth::user();
@@ -57,6 +56,7 @@ class ProjectController extends Controller
         }
         JavaScript::put([
             'departmentId' => $departmentId,
+            'allNotify' => $user->unreadNotifications,
             'count' => count($user->unreadNotifications)
         ]);
 
@@ -163,20 +163,6 @@ class ProjectController extends Controller
         $user = Auth::user();
         Project::find($request->id)->delete();
         return redirect('project');
-    }
-
-    public function permission() {
-
-        $listdepartment = Department::all();
-
-        $users = Adldap::search()->users()
-                                 ->select(['displayname','title','mail'])
-                                 ->paginate(15);
-
-        $user = Auth::user();
-
-        return view('permission.permission', ['user' => $user, 'users' => $users, 'listdepartment' => $listdepartment]);
-
     }
 
     public function pagenotfound() {

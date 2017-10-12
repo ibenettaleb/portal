@@ -1,0 +1,36 @@
+new Vue ({
+
+	el: '#app',
+
+	data: {
+		allNotifications: ''
+	},
+
+	created: function () {
+		this.fetchData
+	},
+
+	methods: {
+		fetchData: function () {
+			this.$http.get('/Notifications'),
+			   function (Response) {
+				this.allNotifications;
+			   }
+		}
+	},
+
+	ready: function() {
+		var getNewNotifications = function () {
+		$.get('/Notifications', function(Response) {
+			allNotify = Response;
+			$('#countNotiy').text(allNotify.length);
+			this.allNotifications = [1, 2, 3];
+			$.each(allNotify, function (index, value) {
+				console.log(value.data['newProject']['title']);
+			});
+		});
+		};
+		setInterval(getNewNotifications, 3000);
+	}
+
+});

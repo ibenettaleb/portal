@@ -71,7 +71,6 @@
                     <div class="row">
                         <div class="col-sm-8">
                             <h5 style="margin-bottom: -3px; margin-top:7px;">Create New APP</h5>
-                            <small class="text-danger">Please Enter all required field <img src="{{asset('assets/img/required.png')}}" alt="required"></small>
                             <div class="space-10"></div>
                             <form class="form" id="createForm" action="{{ url('app') }}" method="post" enctype="multipart/form-data">
                                 {{ csrf_field() }}
@@ -96,7 +95,7 @@
                                         </div>
                                     </div>
                                     <div class="space-10"></div>
-                                    <br id="selectspace" style="display: none;"/>
+                                    <div id="selectspace" class="space-20" style="display: none;"></div>
                                     <div>
                                         <span>Select Department<br /></span>
                                         <select class="form-control m-bot15 js-example-basic-multiple" name="selectedDepartment[]" multiple="multiple" style="width: 338px;">
@@ -111,11 +110,12 @@
                                     <div class="space-10"></div>
                                     <div>
                                         <label class="custom-file">
-                                          <input type="file" id="project_image" name="project_image" class="custom-file-input" aria-describedby="fileHelp">
+                                          <input type="file" id="project_image" accept=".jpg,.jpeg,.bmp,.gif,.png" name="project_image" class="custom-file-input" aria-describedby="fileHelp">
                                           <span class="custom-file-control form-control-file"></span>
                                         </label>
                                     </div> 
                                     <hr />
+                                    <small class="text-danger">Please Enter all required field <img src="{{asset('assets/img/required.png')}}" alt="required"></small>
                                     <div class="space-10"></div>
                                     <div class="send-button">
                                         <div class="row">

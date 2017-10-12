@@ -34,20 +34,29 @@
                                 Welcome, {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
                         </li>
-                        <li class="dropdown" style="padding: 0px 20px;" onclick="markNotificationAsRead({{count($user->unreadNotifications)}})">
+			<div id="app">
+                        <li class="dropdown hidden-sm-down" style="padding: 0px 20px;">
                             <a href="#Notifications" class="dropdown-toggle" data-toggle="dropdown" id="dropdownlist">
                                 <i class="fa fa-bell-o" aria-hidden="true"></i>
-                                <span class="badge round" id="countNotiy">{{count($user->unreadNotifications)}}</span>
+                                <span class="badge round" id="countNotiy"></span>
                                 Notifications
-                                <ul class="dropdown-menu" aria-labelledby="dropdownlist" style="padding-top: 0px;">
-                                    @forelse($user->unreadNotifications as $notification)
-                                        <a class="dropdown-item" href="#">New APP <span style="color: #18ce0f;">Created</span> : <br />{{$notification->data['newProject']['title']}}<br /><span class="blockquote-footer float-right">by {{$notification->data['user']['name']}}</span></a>
-                                        @empty
-                                        <a class="dropdown-item" href="#">No unread Notifications</a>
-                                    @endforelse
+                                <ul class="dropdown-menu" style="padding-top: 0px; padding-bottom:0px; margin-top: -10px; margin-left: 20px;">
+					<div class="row" style="margin-right:0px; margin-left:0px; background-color: #00B2A3;">
+					<button class="btn btn-neutral float-left" style="color: #FFF; cursor: text; background-color: #00B2A3;">You Have @{{allNotifications.length}} Notifications :</button>
+					<div v-if="allNotifications.length != 0">
+					<button class="btn btn-neutral float-right" style="color: #FFF; background-color: #00B2A3; margin-left: 30px;" onclick="markNotificationAsRead(@{{allNotifications.length}})"><span style="border-bottom: 2px solid #FF2628">Mark all as read</span></button>
+					</div>
+					</div>
+					<div v-for="notify in allNotifications">
+                                        	<li class="dropdown-item">New APP <span style="color: #18ce0f;">Created</span> : <br />@{{notify.data['newProject']['title']}}<br /><span class="blockquote-footer float-right">by @{{notify.data['user']['name']}}</span></li>
+					</div>
+					<div v-if="allNotifications.length ==0">
+                                        	<li class="dropdown-item">No unread Notifications</li>
+					</div>
                                 </ul>
                             </a>
                         </li>
+			</div>
                         <li class="hidden-sm-down">
                             <a href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
@@ -75,7 +84,7 @@
         <div class="wrapper">
             <div class="main">
                 <div>
-                    <div class="space-40"></div>
+                   <div class="space-40"></div>
                     <div class="container">
                         <div class="col-md-12 col-sm-12 content-center brand">
                             <div class="space-20"></div>
@@ -137,7 +146,7 @@
                                                     </div>
                                                     <div id="card" class="card-block margin-card fixed-card">
                                                         <h4 class="card-title truncate-title jsearch-field">{{ $project -> title }}</h4>
-                                                        <p class="card-text truncate-description jsearch-field text-center" >{{ $project -> description }}</p>
+                                                        <p class="card-text truncate-description jsearch-field" >{{ $project -> description }}</p>
                                                     </div>
                                                 </div>
                                                 <div class="card-footer">
@@ -149,11 +158,7 @@
                                                         </h6>
                                                     </a>
                                                 </div>
-                                                <div class="details">
-                                                    <h4>{{ $project -> title }}</h4>
-                                                    <p class="truncate-description-hover">{{ $project -> description }}</p>
-                                                </div>
-                                            </div>
+					    </div>
                                         </div>
                                     @endif
                                 @endforeach
@@ -167,7 +172,7 @@
                                             </div>
                                             <div id="card" class="card-block margin-card fixed-card">
                                                 <h4 class="card-title truncate-title jsearch-field">{{ $project -> title }}</h4>
-                                                <p class="card-text truncate-description jsearch-field text-center" >{{ $project -> description }}</p>
+                                                <p class="card-text truncate-description jsearch-field" >{{ $project -> description }}</p>
                                             </div>
                                             <div class="card-footer">
                                                 <hr />
@@ -187,10 +192,6 @@
                                                         <i class="fa fa-external-link" aria-hidden="true"></i>
                                                     </h6>
                                                 </a>
-                                            </div>
-                                            <div class="details">
-                                                <h4>{{ $project -> title }}</h4>
-                                                <p class="truncate-description-hover">{{ $project -> description }}</p>
                                             </div>
                                         </div>
                                     </div>

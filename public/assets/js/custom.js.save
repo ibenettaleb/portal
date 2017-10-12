@@ -32,10 +32,13 @@ $(document).ready(function () {
         }
 	}
 	$('.js-example-basic-multiple').select2();
-
-	$('[rel="tooltip"]').tooltip();
-
+	if (windowvar.count == 0) {
+        $("#countNotiy").css("display", "none");
+   	}
+	setInterval(, 3000);
+	console.log("ALL Notification " + windowvar.allNotify);
 });
+
 
 $("#jquery-search-sample").jsearch({
   rowClass: '.jsearch-row',
@@ -105,7 +108,7 @@ function markNotificationAsRead(notificationCount) {
     if (notificationCount !== '0') {
         $.get('/markAsRead');
     }
-};
+}
 
 
 

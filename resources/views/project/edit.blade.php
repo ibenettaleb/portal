@@ -71,7 +71,6 @@
                     <div class="row">
                         <div class="col-sm-8">
                             <h5 style="margin-bottom: -3px; margin-top:7px;">Edit APP</h5>
-                            <small class="text-danger">Please Enter all required field</small>
                             <div class="space-10"></div>
                             <form class="form" id="createForm" action="{{ url('app/'.$project -> id) }}" method="post" enctype="multipart/form-data">
                                 {{ csrf_field() }}
@@ -81,23 +80,23 @@
                                         <span style="padding-left: 15px;" class="input-group-addon">
                                             <i class="fa fa-align-center" aria-hidden="true"></i>
                                         </span>
-                                        <input name="title" id="title" type="text" class="form-control" placeholder="Title..." value="{{ $project -> title }}" />
+                                        <input name="title" id="title" type="text" class="form-control" placeholder="Title..." value="{{ $project -> title }}" required="required" />
                                     </div>
                                     <div class="space-10"></div>
                                     <div class="input-group">
                                         <span style="padding-left: 15px;" class="input-group-addon">
                                             <i class="fa fa-link" aria-hidden="true"></i>
                                         </span>
-                                        <input name="link" id="link" type="url" class="form-control" placeholder="https://link..." value="{{ $project -> link }}">
+                                        <input name="link" id="link" type="url" class="form-control" placeholder="https://link..." value="{{ $project -> link }}" required="required" />
                                     </div>
                                     <div class="space-10"></div>
                                     <div>
                                         <div class="textarea-container">
-                                            <textarea name="description" id="description" class="form-control" name="name" rows="4" cols="80" placeholder="Type a description...">{{ $project -> description }}</textarea>
+                                            <textarea name="description" id="description" class="form-control" name="name" rows="4" cols="80" placeholder="Type a description..." required="required">{{ $project -> description }}</textarea>
                                         </div>
                                     </div>
                                     <div class="space-10"></div>
-				    <br id="selectspace2" style="display: none" />
+				    <br id="selectspace2" class="space-20" style="display: none"></div>
                                     <div>
                                         <span>Select Department<br /></span>
                                         <select class="form-control m-bot15 js-example-basic-multiple" id="data" name="selectedDepartment[]" multiple="multiple" style="width: 338px;">
@@ -117,6 +116,7 @@
                                         </label>
                                     </div> 
                                     <hr />
+				    <small class="text-danger">Please Enter all required field <img src="http://portal.um6p.ma/assets/img/required.png" alt="required"></small>
                                     <div class="space-10"></div>
                                     <div class="send-button">
                                         <div class="row">
