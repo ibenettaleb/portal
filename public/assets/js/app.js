@@ -16,7 +16,7 @@ new Vue ({
 			$('#countNotiy').text(self.allNotifications.length);
 		});
 		};
-		setInterval(getNewNotifications, 3000);
+		setInterval(getNewNotifications, 2000);
 	}
 
 });

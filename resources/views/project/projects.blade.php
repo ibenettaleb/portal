@@ -34,29 +34,29 @@
                                 Welcome, {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
                         </li>
-			<div id="app">
-                        <li class="dropdown hidden-sm-down" style="padding: 0px 20px;">
-                            <a href="#Notifications" class="dropdown-toggle" data-toggle="dropdown" id="dropdownlist">
-                                <i class="fa fa-bell-o" aria-hidden="true"></i>
-                                <span class="badge round" id="countNotiy"></span>
-                                Notifications
-                                <ul class="dropdown-menu" style="padding-top: 0px; padding-bottom:0px; margin-top: -10px; margin-left: 20px;">
-					<div class="row" style="margin-right:0px; margin-left:0px; background-color: #00B2A3;">
-					<button class="btn btn-neutral float-left" style="color: #FFF; cursor: text; background-color: #00B2A3;">You Have @{{allNotifications.length}} Notifications :</button>
-					<div v-if="allNotifications.length != 0">
-					<button class="btn btn-neutral float-right" style="color: #FFF; background-color: #00B2A3; margin-left: 30px;" onclick="markNotificationAsRead(@{{allNotifications.length}})"><span style="border-bottom: 2px solid #FF2628">Mark all as read</span></button>
-					</div>
-					</div>
-					<div v-for="notify in allNotifications">
-                                        	<li class="dropdown-item">New APP <span style="color: #18ce0f;">Created</span> : <br />@{{notify.data['newProject']['title']}}<br /><span class="blockquote-footer float-right">by @{{notify.data['user']['name']}}</span></li>
-					</div>
-					<div v-if="allNotifications.length ==0">
-                                        	<li class="dropdown-item">No unread Notifications</li>
-					</div>
+                        <div id="app">
+                            <li class="dropdown hidden-sm-down" style="padding: 0px 20px;">
+                                <a href="#Notifications" class="dropdown-toggle" data-toggle="dropdown" id="dropdownlist">
+                                    <i class="fa fa-bell-o" aria-hidden="true"></i>
+                                    <span class="badge round" id="countNotiy"></span>
+                                    Notifications
+                                </a>
+                                <ul class="dropdown-menu" style="padding-top: 0px; padding-bottom:0px; margin-left: 20px;">
+                                    <div class="row" style="margin-right:0px; margin-left:0px; background-color: #00B2A3;">
+                                        <button class="btn btn-neutral float-left" style="color: #FFF; cursor: text; background-color: #00B2A3;">You Have @{{allNotifications.length}} Notifications :</button>
+                                        <div v-if="allNotifications.length != 0">
+                                            <button class="btn btn-neutral float-right" style="color: #FFF; background-color: #00B2A3; margin-left: 30px;" onclick="markNotificationAsRead(@{{allNotifications.length}})"><span style="border-bottom: 2px solid #FF2628">Mark all as read</span></button>
+                                        </div>
+                                    </div>
+                                    <div v-for="notify in allNotifications">
+                                        <li class="dropdown-item"><b>@{{notify.data['user']['name']}}</b> <span style="color: #18ce0f;">Creat</span> New APP  : <br />@{{notify.data['newProject']['title']}}<br /><span class="float-right" style="font-size: 80%; color: #636c72;">CreatedAt : @{{notify.created_at}}</span></li>
+                                    </div>
+                                    <div v-if="allNotifications.length ==0">
+                                        <li class="dropdown-item">No unread Notifications</li>
+                                    </div>
                                 </ul>
-                            </a>
-                        </li>
-			</div>
+                            </li>
+                        </div>
                         <li class="hidden-sm-down">
                             <a href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
