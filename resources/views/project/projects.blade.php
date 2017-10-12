@@ -49,7 +49,7 @@
                                         </div>
                                     </div>
                                     <div v-for="notify in allNotifications">
-                                        <li class="dropdown-item"><b>@{{notify.data['user']['name']}}</b> <span style="color: #18ce0f;">Creat</span> New APP  : <br />@{{notify.data['newProject']['title']}}<br /><span class="float-right" style="font-size: 80%; color: #636c72;">CreatedAt : @{{notify.created_at}}</span></li>
+                                        <li class="dropdown-item"><b>@{{notify.data['user']['name']}}</b> <span style="color: #18ce0f;">Creat</span> New APP  : <br />@{{notify.data['newProject']['title']}}<br /><span class="float-right" style="font-size: 80%; color: #636c72;">CreatedAt : @{{notify.created_at | myOwnTime}}</span></li>
                                     </div>
                                     <div v-if="allNotifications.length ==0">
                                         <li class="dropdown-item">No unread Notifications</li>

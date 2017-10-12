@@ -17,6 +17,10 @@ new Vue ({
 		});
 		};
 		setInterval(getNewNotifications, 2000);
+
+		Vue.filter('myOwnTime', function (value) {
+            return moment(value).fromNow();
+        })
 	}
 
 });

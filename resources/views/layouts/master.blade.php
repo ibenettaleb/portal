@@ -42,6 +42,7 @@
 	<script type="text/javascript" src="{{ asset('assets/js/app.js') }}"></script>
 	<script type="text/javascript" src="{{ asset('assets/js/sweetalert.min.js') }}"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+	<script type="application/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.1/moment.min.js"></script>
 </body>
 </body>
 </html>
