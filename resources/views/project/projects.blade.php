@@ -45,12 +45,14 @@
                                     <div class="row" style="margin-right:0px; margin-left:0px; background-color: #00B2A3;">
                                         <button class="btn btn-neutral float-left" style="color: #FFF; cursor: text; background-color: #00B2A3;">You Have @{{allNotifications.length}} Notifications :</button>
                                         <div v-if="allNotifications.length != 0">
-                                            <button class="btn btn-neutral float-right" style="color: #FFF; background-color: #00B2A3; margin-left: 30px;" onclick="markNotificationAsRead(@{{allNotifications.length}})"><span style="border-bottom: 2px solid #FF2628">Mark all as read</span></button>
+                                            <button class="btn btn-neutral float-right" style="color: #FFF; background-color: #00B2A3; padding-left: 30px;" onclick="markNotificationAsRead(@{{allNotifications.length}})"><i class="fa fa-thumb-tack" aria-hidden="true"></i><span style="border-bottom: 2px solid #FF2628"> Mark all as read</span></button>
                                         </div>
                                     </div>
+				    <div style="overflow-y: scroll; height: 450px;">
                                     <div v-for="notify in allNotifications">
-                                        <li class="dropdown-item"><b>@{{notify.data['user']['name']}}</b> <span style="color: #18ce0f;">Creat</span> New APP  : <br />@{{notify.data['newProject']['title']}}<br /><span class="float-right" style="font-size: 80%; color: #636c72;">CreatedAt : @{{notify.created_at | myOwnTime}}</span></li>
+                                        <li class="dropdown-item"><b>@{{notify.data['user']['name']}}</b> <span style="color: #18ce0f;">Creat</span> New APP  : <br />@{{notify.data['newProject']['title']}}<br /><span class="float-right" style="font-size: 80%; color: #636c72;"><i class="fa fa-clock-o" aria-hidden="true"></i> @{{notify.created_at | myOwnTime}}</span></li>
                                     </div>
+				    </div>
                                     <div v-if="allNotifications.length ==0">
                                         <li class="dropdown-item">No unread Notifications</li>
                                     </div>

@@ -188,7 +188,7 @@ return [
                 */
 
                 'admin_username' => env('ADLDAP_ADMIN_USERNAME', 'abdeljalil.benettaleb@um6p.ma'),
-                'admin_password' => env('ADLDAP_ADMIN_PASSWORD', 'Abdeljalil@1994'),
+                'admin_password' => env('ADLDAP_ADMIN_PASSWORD', 'Abdo70$$'),
 
                 /*
                 |--------------------------------------------------------------------------
