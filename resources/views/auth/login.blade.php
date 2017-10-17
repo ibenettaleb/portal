@@ -7,7 +7,7 @@
         <div class="page-header-image" style="background-image:url({{ asset('assets/img/login.jpg') }})"></div>
         <div class="container">
             <div class="col-md-4 content-center float-right">
-                <div class="card card-login card-plain">
+                <div class="card card-login card-plain" id="login__card">
                     <form class="form" method="POST" action="{{ route('login') }}">
                         {{ csrf_field() }}
                         <div class="header header-primary text-center">

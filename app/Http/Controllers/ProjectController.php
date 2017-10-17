@@ -86,7 +86,7 @@ class ProjectController extends Controller
         if ($request->hasFile('project_image')) {
             $project_image = $request->file('project_image');
             $filename = time() . '.' . $project_image->getClientOriginalExtension();
-            Image::make($project_image)->resize(1400, 800)->save( public_path('/uploads/images/' . $filename) );
+            Image::make($project_image)->resize(1050, 775)->save( public_path('/uploads/images/' . $filename) );
         } else {
             $filename = 'default-image.png';
         }
@@ -137,7 +137,7 @@ class ProjectController extends Controller
         if ($request->hasFile('project_image')) {
             $project_image = $request->file('project_image');
             $filename = time() . '.' . $project_image->getClientOriginalExtension();
-            Image::make($project_image)->resize(1400, 800)->save( public_path('/uploads/images/' . $filename) );
+            Image::make($project_image)->resize(1050, 775)->save( public_path('/uploads/images/' . $filename) );
             $project->image = $filename;
         }
 

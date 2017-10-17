@@ -48,11 +48,11 @@
                                             <button class="btn btn-neutral float-right" style="color: #FFF; background-color: #00B2A3; padding-left: 30px;" onclick="markNotificationAsRead(@{{allNotifications.length}})"><i class="fa fa-thumb-tack" aria-hidden="true"></i><span style="border-bottom: 2px solid #FF2628"> Mark all as read</span></button>
                                         </div>
                                     </div>
-				    <div style="overflow-y: scroll; height: 450px;">
-                                    <div v-for="notify in allNotifications">
-                                        <li class="dropdown-item"><b>@{{notify.data['user']['name']}}</b> <span style="color: #18ce0f;">Creat</span> New APP  : <br />@{{notify.data['newProject']['title']}}<br /><span class="float-right" style="font-size: 80%; color: #636c72;"><i class="fa fa-clock-o" aria-hidden="true"></i> @{{notify.created_at | myOwnTime}}</span></li>
-                                    </div>
-				    </div>
+				                    <div style="overflow-y: auto; max-height: 450px;">
+                                        <div v-for="notify in allNotifications">
+                                            <li class="dropdown-item"><b>@{{notify.data['user']['name']}}</b> <span style="color: #18ce0f;">Creat</span> New APP  : <br />@{{notify.data['newProject']['title']}}<br /><span class="float-right" style="font-size: 80%; color: #636c72;"><i class="fa fa-clock-o" aria-hidden="true"></i> @{{notify.created_at | myOwnTime}}</span></li>
+                                        </div>
+				                    </div>
                                     <div v-if="allNotifications.length ==0">
                                         <li class="dropdown-item">No unread Notifications</li>
                                     </div>
@@ -114,10 +114,7 @@
                                     <div class="col-lg-8 col-sm-12">
                                         <div class="input-group col-xs-4">
                                           <span class="input-group-addon">
-                                            <button class="btn btn-primary btn-icon btn-icon-mini btn-round btn-sm"
-                                                style="margin-left: -0.1px" >
-                                                <i class="fa fa-search" aria-hidden="true"></i> 
-                                            </button>
+                                                <i class="fa fa-search" aria-hidden="true" style="padding-left: 7px;"></i> 
                                           </span>
                                              <input type="text" name="search" class="form-control" placeholder="Search here ... (Title, Description, Department)" id="jquery-search-sample">
                                         </div> 
@@ -140,62 +137,68 @@
                             @foreach($projects->sortByDesc('created_at') as $project)
                                 @foreach($project->find($project->id)->departments as $department)
                                     @if($department->name == $myGroup || $department->id === 1)
-                                        <div class="col-lg-4 col-md-6 col-sm-12 jsearch-row">
-                                            <div class="card">
-                                                <div class="cardhover">
-                                                    <div class="imgBx">
-                                                        <img class="card-img-top" src="uploads/images/{{ $project -> image }}" alt="{{ $project -> image }}" uk-scrollspy="cls: uk-animation-kenburns; repeat: true">
-                                                    </div>
-                                                    <div id="card" class="card-block margin-card fixed-card">
-                                                        <h4 class="card-title truncate-title jsearch-field">{{ $project -> title }}</h4>
-                                                        <p class="card-text truncate-description jsearch-field" >{{ $project -> description }}</p>
-                                                    </div>
-                                                </div>
-                                                <div class="card-footer">
-                                                    <hr />
-                                                    <a class="btn btn-neutral float-right" href="{{ $project -> link }}" target="_blank">
-                                                        <h6>Open
-                                                            <span style="display:inline-block; width: YOURWIDTH;"></span>
-                                                            <i class="fa fa-external-link" aria-hidden="true"></i>
-                                                        </h6>
-                                                    </a>
-                                                </div>
-					    </div>
+                                        <div class="col-md-4 jsearch-row">
+                                        <article class="card">
+                                            <header class="card__thumb">
+                                                <img src="uploads/images/{{ $project -> image }}" alt="{{ $project -> image }}">
+                                            </header>
+                                            <div class="card__date">
+                                                <span class="card__date__day">{{ $project -> created_at -> day }}</span>
+                                                <span class="card__date__month">{{date('M', strtotime($project -> created_at))}}</span>
+                                            </div>
+                                            <div class="card__body">
+                                                <div class="card__category">Project</div>
+                                                <h2 class="card__title"><a href="{{ $project -> link }}" target="_blank">{{ $project -> title }}</a></h2>
+                                                <p class="card__description" id="style-5">{{ $project -> description }}</p>
+                                            </div>
+                                            <footer class="card__footer">
+                                                <a class="btn btn-neutral float-right" href="{{ $project -> link }}" target="_blank">
+                                                    <h6 style="margin-top: 6px;">Open
+                                                        <span style="display:inline-block; width: YOURWIDTH;"></span>
+                                                        <i class="fa fa-external-link-square" aria-hidden="true"></i>
+                                                    </h6>
+                                                </a>
+                                            </footer>
+                                        </article>
                                         </div>
                                     @endif
                                 @endforeach
                             @endforeach
                             @elseif($user->ldap->inGroup('Admin-Portal'))
                                 @foreach($projects->sortByDesc('created_at') as $project)
-                                    <div class="col-lg-4 col-md-6 col-sm-12 jsearch-row">
-                                        <div class="card">
-                                            <div class="imgBx">
-                                                <img class="card-img-top" src="uploads/images/{{ $project -> image }}" alt="{{ $project -> image }}">
+                                    <div class="col-md-4 jsearch-row">
+                                        <article class="card">
+                                            <header class="card__thumb">
+                                                <img src="uploads/images/{{ $project -> image }}" alt="{{ $project -> image }}">
+                                            </header>
+                                            <div class="card__date">
+                                                <span class="card__date__day">{{ $project -> created_at -> day }}</span>
+                                                <span class="card__date__month">{{date('M', strtotime($project -> created_at))}}</span>
                                             </div>
-                                            <div id="card" class="card-block margin-card fixed-card">
-                                                <h4 class="card-title truncate-title jsearch-field">{{ $project -> title }}</h4>
-                                                <p class="card-text truncate-description jsearch-field" >{{ $project -> description }}</p>
+                                            <div class="card__body">
+                                                <div class="card__category">Project</div>
+                                                <h2 class="card__title"><a href="{{ $project -> link }}" target="_blank">{{ $project -> title }}</a></h2>
+                                                <p class="card__description" id="style-5">{{ $project -> description }}</p>
                                             </div>
-                                            <div class="card-footer">
-                                                <hr />
+                                            <footer class="card__footer">
                                                 <form class="form" id="deletePortal" action="{{ url('app/'.$project -> id) }}" method="post">
                                                     {{ csrf_field() }}
                                                     {{ method_field('DELETE') }}
                                                 </form>
-                                                <a href="{{ url('app/'.$project -> id.'/edit') }}" class="btn btn-primary btn-icon  btn-icon-mini btn-round" data-toggle="tooltip" data-placement="top" title="Edit APP">
-                                                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                                <a href="{{ url('app/'.$project -> id.'/edit') }}" class="btn btn-primary btn-icon  btn-icon-mini btn-round" data-toggle="tooltip" data-placement="right" title="Edit APP">
+                                                    <i class="fa fa-pencil-square-o" aria-hidden="true" style="color: #fff; padding-top: 5px;"></i>
                                                 </a>
-                                                <button id="delete" type="button" data-id="{{$project->id}}" class="btn btn-danger btn-icon  btn-icon-mini btn-round" data-toggle="tooltip" data-placement="top" title="Delete APP">
-                                                    <i class="fa fa-trash-o" aria-hidden="true" style="color: #fff;"></i>
-                                                </button>
-                                                <a class="btn btn-neutral float-right" href="{{ $project -> link }}" target="_blank">
-                                                    <h6>Open
+                                                <a class="btn btn-neutral" style="margin: auto; padding: 10px; width: 70%;" href="{{ $project -> link }}" target="_blank">
+                                                    <h6 style="margin-top: 6px;">Open
                                                         <span style="display:inline-block; width: YOURWIDTH;"></span>
-                                                        <i class="fa fa-external-link" aria-hidden="true"></i>
+                                                        <i class="fa fa-external-link-square" aria-hidden="true"></i>
                                                     </h6>
                                                 </a>
-                                            </div>
-                                        </div>
+                                                <button id="delete" type="button" data-id="{{$project->id}}" class="btn btn-danger btn-icon  btn-icon-mini btn-round float-right" data-toggle="tooltip" data-placement="left" title="Delete APP">
+                                                    <i class="fa fa-trash-o" aria-hidden="true" style="color: #fff;"></i>
+                                                </button>
+                                            </footer>
+                                        </article>
                                     </div>
                                 @endforeach
                             @endif
