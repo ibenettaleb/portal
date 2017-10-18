@@ -50,8 +50,9 @@
                                     </div>
 				                    <div style="overflow-y: auto; max-height: 450px;" id="style-6">
                                         <div v-for="notify in allNotifications">
-                                            <li class="dropdown-item"><b>@{{notify.data['user']['name']}}</b> <span style="color: #18ce0f;">Creat</span> New APP  : <br />@{{notify.data['newProject']['title']}}<br /><span class="float-right" style="font-size: 80%; color: #636c72;"><i class="fa fa-clock-o" aria-hidden="true"></i> @{{notify.created_at | myOwnTime}}</span></li>
-                                        </div>
+                                            <li class="dropdown-item"><b>@{{notify.data['user']['name']}}</b> <span style="color: #18ce0f;">Creat</span> New APP  : <br />@{{notify.data['newProject']['title']}}<br /><span class="float-right" style="font-size: 80%; color: #636c72;"><i class="fa fa-clock-o" aria-hidden="true"></i> @{{notify.created_at | myOwnTime}}</span></li>	
+                                            <div class="dropdown-divider"></div>
+					</div>
 				                    </div>
                                     <div v-if="allNotifications.length ==0">
                                         <li class="dropdown-item">No unread Notifications</li>
