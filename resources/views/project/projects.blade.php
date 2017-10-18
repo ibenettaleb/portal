@@ -43,7 +43,7 @@
                                 </a>
                                 <ul class="dropdown-menu" style="padding-top: 0px; padding-bottom:0px; margin-left: 20px;">
                                     <div class="row" style="margin-right:0px; margin-left:0px; background-color: #00B2A3;">
-                                        <button class="btn btn-neutral float-left" style="color: #FFF; cursor: text; background-color: #00B2A3;">You Have @{{allNotifications.length}} Notifications :</button>
+                                        <button class="btn btn-neutral float-left" style="color: #FFF; cursor: text; background-color: #00B2A3; font-size: 11px;">You Have @{{allNotifications.length}} Notifications :</button>
                                         <div v-if="allNotifications.length != 0">
                                             <button class="btn btn-neutral float-right" style="color: #FFF; background-color: #00B2A3; padding-left: 30px;" onclick="markNotificationAsRead(@{{allNotifications.length}})"><i class="fa fa-thumb-tack" aria-hidden="true"></i><span style="border-bottom: 2px solid #FF2628"> Mark all as read</span></button>
                                         </div>
