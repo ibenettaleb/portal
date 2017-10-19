@@ -148,7 +148,7 @@
                                                 <span class="card__date__month">{{date('M', strtotime($project -> created_at))}}</span>
                                             </div>
                                             <div class="card__body">
-                                                <div class="card__category">Project</div>
+                                                <div class="card__category">{{ $project -> email }}</div>
                                                 <h2 class="card__title"><a href="{{ $project -> link }}" target="_blank">{{ $project -> title }}</a></h2>
                                                 <p class="card__description" id="style-5">{{ $project -> description }}</p>
                                             </div>
@@ -177,7 +177,7 @@
                                                 <span class="card__date__month">{{date('M', strtotime($project -> created_at))}}</span>
                                             </div>
                                             <div class="card__body">
-                                                <div class="card__category">Project</div>
+                                                <div class="card__category">{{ $project -> email }}</div>
                                                 <h2 class="card__title"><a href="{{ $project -> link }}" target="_blank">{{ $project -> title }}</a></h2>
                                                 <p class="card__description" id="style-5">{{ $project -> description }}</p>
                                             </div>

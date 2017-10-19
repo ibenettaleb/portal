@@ -6,6 +6,7 @@ use App\Notifications\RepliedToThread;
 use Illuminate\Http\Request;
 use App\Project;
 use App\Department;
+use App\Category;
 use Illuminate\Notifications\Notification;
 use Image;
 use App\User;
@@ -72,8 +73,9 @@ class ProjectController extends Controller
             'id' => $id
         ]);
         $listdepartment = Department::all();
+        $listcategory = Category::all();
 
-        return view('project.create', ['projects' => $listproject, 'user' => $user, 'listdepartment' => $listdepartment]);
+        return view('project.create', ['projects' => $listproject, 'user' => $user, 'listdepartment' => $listdepartment, 'listcategory' => $listcategory]);
     }
 
     //Save a project
@@ -83,6 +85,7 @@ class ProjectController extends Controller
         $newProject->title = $request->input('title');
         $newProject->link = $request->input('link');;
         $newProject->description = $request->input('description');
+        $newProject->email = $request->input('category_name');
         if ($request->hasFile('project_image')) {
             $project_image = $request->file('project_image');
             $filename = time() . '.' . $project_image->getClientOriginalExtension();
@@ -117,14 +120,16 @@ class ProjectController extends Controller
         $user = Auth::user();
         $project = Project::find($id);
         $listdepartment = Department::all();
+        $listcategory = Category::all();
         $selectedDepartment = $this->project->find($id)->departments;
+        $selectedCategory = Project::find($id)->email;
 
         JavaScript::put([
             'selectedDepartment' => $selectedDepartment,
             'id' => $id
         ]);
 
-        return view('project.edit', ['project' => $project, 'user' => $user, 'listdepartment' => $listdepartment, 'selectedDepartment' => $selectedDepartment]);
+        return view('project.edit', ['project' => $project, 'user' => $user, 'listdepartment' => $listdepartment, 'selectedDepartment' => $selectedDepartment, 'listcategory' => $listcategory, 'selectedCategory' => $selectedCategory]);
     } 
 
     public function update(Request $request, $id) {
@@ -133,7 +138,7 @@ class ProjectController extends Controller
         $project->title = $request->input('title');
         $project->link = $request->input('link');
         $project->description = $request->input('description');
-
+        $project->email = $request->input('category_name');
         if ($request->hasFile('project_image')) {
             $project_image = $request->file('project_image');
             $filename = time() . '.' . $project_image->getClientOriginalExtension();

@@ -95,6 +95,17 @@
                                         </div>
                                     </div>
                                     <div class="space-10"></div>
+                                    <div>
+                                    <span>Select Category<br /></span>
+                                    <select class="form-control m-bot15" name="category_name">
+                                        @if ($listcategory->count())
+                                            @foreach($listcategory as $category)
+                                                <option value="{{ $category->category }}">{{ $category->category }}</option>    
+                                            @endforeach
+                                        @endif
+                                    </select>
+                                    </div>
+                                    <div class="space-10"></div>
                                     <div id="selectspace" class="space-20" style="display: none;"></div>
                                     <div>
                                         <span>Select Department<br /></span>

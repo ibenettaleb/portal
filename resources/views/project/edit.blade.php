@@ -96,7 +96,18 @@
                                         </div>
                                     </div>
                                     <div class="space-10"></div>
-				    <br id="selectspace2" class="space-20" style="display: none"></div>
+                                    <div>
+                                    <span>Select Category<br /></span>
+                                    <select class="form-control m-bot15" name="category_name">
+                                        @if ($listcategory->count())
+                                            @foreach($listcategory as $category)
+                                                <option value="{{ $category->category }}" {{ $selectedCategory == $category->category ? 'selected="selected"' : '' }}>{{ $category->category }}</option>    
+                                            @endforeach
+                                        @endif
+                                    </select>
+                                    </div>
+                                    <div class="space-10"></div>
+				                    <br id="selectspace2" class="space-20" style="display: none"></div>
                                     <div>
                                         <span>Select Department<br /></span>
                                         <select class="form-control m-bot15 js-example-basic-multiple" id="data" name="selectedDepartment[]" multiple="multiple" style="width: 338px;">
