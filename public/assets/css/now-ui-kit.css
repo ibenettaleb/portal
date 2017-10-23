@@ -2140,8 +2140,8 @@ body {
   vertical-align: middle;
   content: "";
   top: -5px;
-  left: 10px;
-  right: auto;
+  left: auto;
+  right: 23px;
   color: #00B2A3;
   border-bottom: .4em solid;
   border-right: .4em solid transparent;
