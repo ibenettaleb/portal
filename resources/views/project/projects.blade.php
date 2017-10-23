@@ -53,7 +53,7 @@
                                         </button>
                                         <div v-if="allNotifications.length != 0">
                                             <div class="float-right mark"
-                                                    onclick="markNotificationAsRead(@{{allNotifications.length}})"><i
+                                                 onclick="markNotificationAsRead(@{{allNotifications.length}})"><i
                                                         class="fa fa-thumb-tack" aria-hidden="true"></i><span
                                                         style="border-bottom: 2px solid #F25F5C"> Mark all as read</span>
                                             </div>
@@ -174,11 +174,12 @@
                                                     </div>
                                                     <div class="card__body">
                                                         <div class="card__category">{{ $project -> email }}</div>
-                                                        <h2 class="card__title"><a href="{{ $project -> link }}"
-                                                                                   target="_blank">{{ $project -> title }}</a>
+                                                        <h2 class="card__title jsearch-field"><a
+                                                                    href="{{ $project -> link }}"
+                                                                    target="_blank">{{ $project -> title }}</a>
                                                         </h2>
                                                         <p class="card__description"
-                                                           id="style-11">{{ $project -> description }}</p>
+                                                           id="style-11 jsearch-field">{{ $project -> description }}</p>
                                                     </div>
                                                     <footer class="card__footer">
                                                         <a class="btn btn-neutral float-right"
@@ -209,10 +210,10 @@
                                             </div>
                                             <div class="card__body">
                                                 <div class="card__category">{{ $project -> email }}</div>
-                                                <h2 class="card__title"><a href="{{ $project -> link }}"
-                                                                           target="_blank">{{ $project -> title }}</a>
+                                                <h2 class="card__title jsearch-field"><a href="{{ $project -> link }}"
+                                                                                         target="_blank">{{ $project -> title }}</a>
                                                 </h2>
-                                                <p class="card__description"
+                                                <p class="card__description jsearch-field"
                                                    id="style-11">{{ $project -> description }}</p>
                                             </div>
                                             <footer class="card__footer">
