@@ -136,9 +136,8 @@
                                                 <i class="fa fa-search" aria-hidden="true"
                                                    style="padding-left: 7px;"></i>
                                             </span>
-                                            <input type="text" name="search" class="form-control"
-                                                   placeholder="Search here ... (Title, Description)"
-                                                   id="jquery-search-sample">
+                                            <input type="text" name="search" class="form-control quicksearch" id="search"
+                                                   placeholder="Search here ... (Title, Description)">
                                         </div>
                                         <div class="portfolioFilter clearfix">
                                             <a href="#" class="btn btn-simple current" id="allCat" data-filter="*">All Categories</a>
@@ -167,7 +166,7 @@
                                 @foreach($projects->sortByDesc('created_at') as $project)
                                     @foreach($project->find($project->id)->departments as $department)
                                         @if($department->name == $myGroup || $department->id === 1)
-                                            <div class="col-md-4 jsearch-row {{ $project -> email }}">
+                                            <div id="{{$project->id}}" class="col-md-4 {{ $project -> email }}">
                                                 <article class="card">
                                                     <header class="card__thumb">
                                                         <img src="uploads/images/{{ $project -> image }}"
@@ -203,7 +202,7 @@
                                 @endforeach
                             @elseif($user->ldap->inGroup('Admin-Portal'))
                                 @foreach($projects->sortByDesc('created_at') as $project)
-                                    <div class="col-md-4 jsearch-row {{ $project -> email }}">
+                                    <div id="{{$project->id}}" class="col-md-4 {{ $project -> email }} element-item ">
                                         <article class="card">
                                             <header class="card__thumb">
                                                 <img src="uploads/images/{{ $project -> image }}"

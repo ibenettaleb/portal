@@ -28,7 +28,6 @@
 <script type="text/javascript" src="{{ asset('assets/js/core/jquery.3.2.1.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('assets/js/core/jquery.isotope.js') }}"></script>
 <script type="text/javascript" src="{{ asset('assets/js/jquery.bootstrap-duallistbox.js') }}"></script>
-<script type="text/javascript" src="{{ asset('assets/js/jquery.search.js') }}"></script>
 <script type="text/javascript" src="{{ asset('assets/js/core/tether.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('assets/js/core/bootstrap.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('assets/js/plugins/bootstrap-switch.js') }}"></script>
