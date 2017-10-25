@@ -44,25 +44,13 @@
                                 </div>
                                 <ul class="dropdown-menu"
                                     style="padding-top: 0px; padding-bottom:0px; margin-left: 20px;">
-                                    <div class="row"
-                                         style="margin-right:0px; margin-left:0px; background-color: #00B2A3; box-shadow: 0 -4px 20px 0 rgba(0, 0, 0, 0.1), 1px -4px 20px 0 rgba(0, 0, 0, 0.1
-                                         );">
-                                        <button class="btn btn-neutral float-left"
-                                                style="color: #FFF; cursor: text; background-color: #00B2A3; font-size: 11.5px;">
-                                            You Have @{{allNotifications.length}} Notifications :
-                                        </button>
-                                        <div v-if="allNotifications.length != 0">
-                                            <div class="float-right mark"
-                                                 onclick="markNotificationAsRead(@{{allNotifications.length}})"><i
-                                                        class="fa fa-thumb-tack" aria-hidden="true"></i><span
-                                                        style="border-bottom: 2px solid #F25F5C"> Mark all as read</span>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <header class="header__notify">
+                                        You Have @{{allNotifications.length}} Notifications
+                                    </header>
                                     <div class="tse-scrollable wrapper">
                                         <div style="overflow-y: auto; max-height: 450px;" id="style-11">
                                             <div v-for="notify in allNotifications" class="div-hover">
-                                                <li class="dropdown-item"><b>@{{notify.data['user']['name']}}</b> <span
+                                                <li class="dropdown-item" style="padding-top: 15px; padding-left: 15px;"><b>@{{notify.data['user']['name']}}</b> <span
                                                             style="color: #18ce0f;">Creat</span> New APP : <br/>@{{notify.data['newProject']['title']}}<br/><span
                                                             class="float-right" style="font-size: 80%; color: #636c72;"><i
                                                                 class="fa fa-clock-o" aria-hidden="true"></i> @{{notify.created_at | myOwnTime}}</span>
@@ -74,6 +62,10 @@
                                     <div v-if="allNotifications.length ==0">
                                         <li class="dropdown-item">No unread Notifications</li>
                                     </div>
+                                    <footer class="footer__notify" v-if="allNotifications.length != 0"
+                                            onclick="markNotificationAsRead(@{{allNotifications.length}})">
+                                        Mark All as Read
+                                    </footer>
                                 </ul>
                             </li>
                         </div>
@@ -136,11 +128,13 @@
                                                 <i class="fa fa-search" aria-hidden="true"
                                                    style="padding-left: 7px;"></i>
                                             </span>
-                                            <input type="text" name="search" class="form-control quicksearch" id="search"
+                                            <input type="text" name="search" class="form-control quicksearch"
+                                                   id="search"
                                                    placeholder="Search here ... (Title, Description)">
                                         </div>
                                         <div class="portfolioFilter clearfix">
-                                            <a href="#" class="btn btn-simple current" id="allCat" data-filter="*">All Categories</a>
+                                            <a href="#" class="btn btn-simple current" id="allCat" data-filter="*">All
+                                                Categories</a>
                                             <a href="#" class="btn btn-simple" data-filter=".Project">Project</a>
                                             <a href="#" class="btn btn-simple" data-filter=".Program">Program</a>
                                             <a href="#" class="btn btn-simple" data-filter=".Service">Service</a>

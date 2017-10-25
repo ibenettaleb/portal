@@ -407,3 +407,26 @@ input.form-control {
     -moz-transition-property: -moz-transform, opacity !important;
     transition-property: transform, opacity !important;
 }
+
+.header__notify {
+    height: 30px;
+    padding-top: 5px;
+    padding-left: 15px;
+    margin-right: 0;
+    margin-left: 0;
+    background-color: #00B2A3;
+    box-shadow: 0 -4px 20px 0 rgba(0, 0, 0, 0.05), 1px -4px 20px 0 rgba(0, 0, 0, 0.05);
+    color: #FFF;
+    cursor: text;
+}
+
+.footer__notify {
+    height: 50px;
+    padding-top: 15px;
+    padding-left: 15px;
+    background-color: #f2f3f5;
+}
+.footer__notify:hover {
+    color: #007791;
+    cursor: pointer;
+}
