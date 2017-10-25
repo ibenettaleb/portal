@@ -252,21 +252,6 @@
                                 @endforeach
                             @endif
                         </div>
-                        <div class="no-apps-found">
-                            <div class="alert alert-danger" role="alert">
-                                <div class="container">
-                                    <div class="alert-icon">
-                                        <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
-                                    </div>
-                                    <strong>Oh Wrong!</strong> No Results Found.
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                            <span aria-hidden="true">
-                                                <i class="now-ui-icons ui-1_simple-remove"></i>
-                                            </span>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>

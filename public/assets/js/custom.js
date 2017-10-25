@@ -5,7 +5,7 @@ let demo1 = $('select[name="duallistbox_demo1[]"]').bootstrapDualListbox({
     moveOnSelect: false
 });
 
-$(document).ready(function () {
+$(window).on('load', function () {
     let $container = $('#allApp');
     $('.portfolioFilter a').click(function () {
         $('.portfolioFilter .current').removeClass('current');
@@ -32,7 +32,7 @@ $(document).ready(function () {
             }
         });
         //use value of search field to filter
-        let $quicksearch = $('.quicksearch').keyup( debounce( function () {
+        let $quicksearch = $('.quicksearch').on('paste copy cut keyup keydown', debounce( function () {
             qsRegex = new RegExp( $quicksearch.val(), 'gi' );
             $allApp.isotope();
         }, 200 ) );
@@ -50,7 +50,6 @@ $(document).ready(function () {
                 timeout = setTimeout( delayed, threshold || 100 );
             }
         }
-        console.log('>>>>>>>>>>>>> ', $quicksearch, '>>>>>>>>>> ', qsRegex);
     });
 });
 
