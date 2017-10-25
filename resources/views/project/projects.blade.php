@@ -61,14 +61,13 @@
                                     </div>
                                     <div class="tse-scrollable wrapper">
                                         <div style="overflow-y: auto; max-height: 450px;" id="style-11">
-                                            <div v-for="notify in allNotifications">
+                                            <div v-for="notify in allNotifications" class="div-hover">
                                                 <li class="dropdown-item"><b>@{{notify.data['user']['name']}}</b> <span
                                                             style="color: #18ce0f;">Creat</span> New APP : <br/>@{{notify.data['newProject']['title']}}<br/><span
                                                             class="float-right" style="font-size: 80%; color: #636c72;"><i
                                                                 class="fa fa-clock-o" aria-hidden="true"></i> @{{notify.created_at | myOwnTime}}</span>
+                                                    <div style="padding-bottom: 20px;"></div>
                                                 </li>
-                                                <div v-if="$index !== (allNotifications.length - 1)"
-                                                     class="dropdown-divider" style="margin-top: 15px;"></div>
                                             </div>
                                         </div>
                                     </div>
@@ -133,13 +132,19 @@
                                     <!-- Start Search-->
                                     <div class="col-lg-8 col-sm-12">
                                         <div class="input-group col-xs-4">
-                                          <span class="input-group-addon">
+                                            <span class="input-group-addon">
                                                 <i class="fa fa-search" aria-hidden="true"
                                                    style="padding-left: 7px;"></i>
-                                          </span>
+                                            </span>
                                             <input type="text" name="search" class="form-control"
-                                                   placeholder="Search here ... (Title, Description, Department)"
+                                                   placeholder="Search here ... (Title, Description)"
                                                    id="jquery-search-sample">
+                                        </div>
+                                        <div class="portfolioFilter clearfix">
+                                            <a href="#" class="btn btn-simple current" id="allCat" data-filter="*">All Categories</a>
+                                            <a href="#" class="btn btn-simple" data-filter=".Project">Project</a>
+                                            <a href="#" class="btn btn-simple" data-filter=".Program">Program</a>
+                                            <a href="#" class="btn btn-simple" data-filter=".Service">Service</a>
                                         </div>
                                     </div>
                                     <!-- Start End Search-->
@@ -157,12 +162,12 @@
                             <hr/>
                         </div>
                         <div class="space-20"></div>
-                        <div class="row font-style">
+                        <div class="row font-style" id="allApp">
                             @if(!$user->ldap->inGroup('Admin-Portal'))
                                 @foreach($projects->sortByDesc('created_at') as $project)
                                     @foreach($project->find($project->id)->departments as $department)
                                         @if($department->name == $myGroup || $department->id === 1)
-                                            <div class="col-md-4 jsearch-row">
+                                            <div class="col-md-4 jsearch-row {{ $project -> email }}">
                                                 <article class="card">
                                                     <header class="card__thumb">
                                                         <img src="uploads/images/{{ $project -> image }}"
@@ -198,7 +203,7 @@
                                 @endforeach
                             @elseif($user->ldap->inGroup('Admin-Portal'))
                                 @foreach($projects->sortByDesc('created_at') as $project)
-                                    <div class="col-md-4 jsearch-row">
+                                    <div class="col-md-4 jsearch-row {{ $project -> email }}">
                                         <article class="card">
                                             <header class="card__thumb">
                                                 <img src="uploads/images/{{ $project -> image }}"
@@ -247,19 +252,19 @@
                                     </div>
                                 @endforeach
                             @endif
-                            <div class="no-apps-found">
-                                <div class="alert alert-danger" role="alert">
-                                    <div class="container">
-                                        <div class="alert-icon">
-                                            <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
-                                        </div>
-                                        <strong>Oh Wrong!</strong> No Results Found.
-                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        </div>
+                        <div class="no-apps-found">
+                            <div class="alert alert-danger" role="alert">
+                                <div class="container">
+                                    <div class="alert-icon">
+                                        <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                                    </div>
+                                    <strong>Oh Wrong!</strong> No Results Found.
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                             <span aria-hidden="true">
                                                 <i class="now-ui-icons ui-1_simple-remove"></i>
                                             </span>
-                                        </button>
-                                    </div>
+                                    </button>
                                 </div>
                             </div>
                         </div>

@@ -19,13 +19,14 @@
     <link rel="stylesheet" href="{{ asset('assets/css/font-awesome/css/font-awesome.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/sweetalert.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css"/>
-    <link rel="stylesheet" href="{{ asset('assets/css/custom.css')  }}">
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap-notifications.css') }}">
     <link href="http://netdna.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="{{ asset('assets/css/custom.css')  }}">
 </head>
 @yield('content')
 
 <script type="text/javascript" src="{{ asset('assets/js/core/jquery.3.2.1.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/js/core/jquery.isotope.js') }}"></script>
 <script type="text/javascript" src="{{ asset('assets/js/jquery.bootstrap-duallistbox.js') }}"></script>
 <script type="text/javascript" src="{{ asset('assets/js/jquery.search.js') }}"></script>
 <script type="text/javascript" src="{{ asset('assets/js/core/tether.min.js') }}"></script>
@@ -38,13 +39,13 @@
 <script type="text/javascript" src="{{ asset('assets/js/jquery.validate.js') }}"></script>
 <script type="text/javascript" src="{{ asset('assets/js/validation.js') }}"></script>
 <script type="text/javascript" src="{{ asset('assets/js/custom.js') }}"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/1.0.1/vue-resource.min.js"></script>
+<script type="text/javascript" src="{{ asset('assets/js/core/vue.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/js/core/vue-resource.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('assets/js/vue-truncate.js') }}"></script>
 <script type="text/javascript" src="{{ asset('assets/js/app.js') }}"></script>
 <script type="text/javascript" src="{{ asset('assets/js/sweetalert.min.js') }}"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+<script type="text/javascript" src="{{ asset('assets/js/core/select2.min.js') }}"></script>
 <script type="application/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.1/moment.min.js"></script>
+        src="{{ asset('assets/js/core/moment.min.js') }}"></script>
 </body>
 </html>

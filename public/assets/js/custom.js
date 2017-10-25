@@ -1,12 +1,31 @@
-var demo1 = $('select[name="duallistbox_demo1[]"]').bootstrapDualListbox({
-	nonSelectedListLabel: 'Non-selected',
-  	selectedListLabel: 'Selected',
-  	preserveSelectionOnMove: 'moved',
-  	moveOnSelect: false
+let demo1 = $('select[name="duallistbox_demo1[]"]').bootstrapDualListbox({
+    nonSelectedListLabel: 'Non-selected',
+    selectedListLabel: 'Selected',
+    preserveSelectionOnMove: 'moved',
+    moveOnSelect: false
 });
 
-$(".preloader").fadeOut(2000, function() {
-	$(".content").fadeIn(2000);
+$(document).ready(function () {
+    let $container = $('#allApp');
+    $('.portfolioFilter a').click(function () {
+        $('.portfolioFilter .current').removeClass('current');
+        $(this).addClass('current');
+
+        let selector = $(this).attr('data-filter');
+        $container.isotope({
+            filter: selector,
+            animationOptions: {
+                duration: 750,
+                easing: 'linear',
+                queue: false
+            }
+        });
+        return false;
+    });
+});
+
+$(".preloader").fadeOut(2000, function () {
+    $(".content").fadeIn(2000);
 });
 
 $(document).on('click', 'button#create', function () {
@@ -18,20 +37,20 @@ $(document).on('click', 'button#update', function () {
 });
 
 $(document).ready(function () {
-	if (window.location.pathname == '/app/'+windowvar.id+'/edit') {
+    if (window.location.pathname == '/app/' + windowvar.id + '/edit') {
         var $options = $('#data option');
         i = 0;
         size = windowvar.selectedDepartment.length;
-        for(i; i<size; i++){
-        	if (windowvar.selectedDepartment[i]['id'] == 1) {
-            	$options.filter('[value="'+windowvar.selectedDepartment[i]['id']+'"]').prop('disabled', true);
+        for (i; i < size; i++) {
+            if (windowvar.selectedDepartment[i]['id'] == 1) {
+                $options.filter('[value="' + windowvar.selectedDepartment[i]['id'] + '"]').prop('disabled', true);
             }
             else {
-                $options.filter('[value="'+windowvar.selectedDepartment[i]['id']+'"]').prop('selected', true);
-			}
+                $options.filter('[value="' + windowvar.selectedDepartment[i]['id'] + '"]').prop('selected', true);
+            }
         }
-	}
-	$('.js-example-basic-multiple').select2();
+    }
+    $('.js-example-basic-multiple').select2();
     $('[rel="tooltip"]').tooltip();
     $(".inputCategory").hide();
     $(".showInput").click(function () {
@@ -54,27 +73,35 @@ $(document).ready(function () {
 });
 
 $("#jquery-search-sample").jsearch({
-  rowClass: '.jsearch-row',
-  fieldClass: '.jsearch-field',
-  minLength: 1,
-  triggers: 'keyup',
-  caseSensitive: false
+    rowClass: '.jsearch-row',
+    fieldClass: '.jsearch-field',
+    minLength: 1,
+    triggers: 'keyup',
+    caseSensitive: false
+});
+
+$("#jquery-search-sample-filter").jsearch({
+    rowClass: '.jsearch-row',
+    fieldClass: '.jsearch-field',
+    minLength: 1,
+    triggers: 'click',
+    caseSensitive: false
 });
 
 $('[data-toggle="popover"]').popover();
 
-$('.custom-file-input').on('change',function(){
-  $(this).next('.form-control-file').addClass("selected").html($(this).val());
+$('.custom-file-input').on('change', function () {
+    $(this).next('.form-control-file').addClass("selected").html($(this).val());
 });
 
 $(function () {
-    $('.truncate-title').succinct ({
+    $('.truncate-title').succinct({
         size: 35
     });
-    $('.truncate-description').succinct ({
+    $('.truncate-description').succinct({
         size: 70
     });
-    $('.truncate-description-hover').succinct ({
+    $('.truncate-description-hover').succinct({
         size: 285
     });
 });
@@ -85,43 +112,46 @@ $(document).on('click', 'button#create', function () {
     $("#selectspace").css("display", "block");
 });
 
-$(document).on('click', 'button#delete', function(e) {
-	e.preventDefault();
+$(document).on('click', 'button#delete', function (e) {
+    e.preventDefault();
     var id = $(this).data('id');
-	swal({
-	  title: "Are you sure?",
-	  text: "You want delete this APP!",
-	  type: "warning",
-	  showCancelButton: true,
-	  confirmButtonColor: "#DD6B55",
-	  confirmButtonText: "Yes, delete it!",
-	  cancelButtonText: "No, cancel plx!",
-	  closeOnConfirm: false,
-	  closeOnCancel: false
-	},
-	function(isConfirm){
-	  if (isConfirm) {
-	    swal("Deleted!", "Your APP has been deleted.", "success");
-	    $.ajax({
-            type: "GET",
-            url: './destroy',
-            data: {id:id, "_token":"{{ csrf_token() }}"},
-            success: function (data) {
-                location.reload ();
-            }         
+    swal({
+            title: "Are you sure?",
+            text: "You want delete this APP!",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#DD6B55",
+            confirmButtonText: "Yes, delete it!",
+            cancelButtonText: "No, cancel plx!",
+            closeOnConfirm: false,
+            closeOnCancel: false
+        },
+        function (isConfirm) {
+            if (isConfirm) {
+                swal("Deleted!", "Your APP has been deleted.", "success");
+                $.ajax({
+                    type: "GET",
+                    url: './destroy',
+                    data: {id: id, "_token": "{{ csrf_token() }}"},
+                    success: function (data) {
+                        location.reload();
+                    }
+                });
+            }
+            else {
+                swal("Cancelled", "Your APP is safe :)", "error");
+            }
         });
-	  } 
-	  else {
-	    swal("Cancelled", "Your APP is safe :)", "error");
-	  }
-	});
 });
 
 function markNotificationAsRead(notificationCount) {
     if (notificationCount !== '0') {
         $.get('/markAsRead');
     }
-};
+}
+
+
+
 
 
 

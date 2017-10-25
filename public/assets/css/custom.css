@@ -346,3 +346,64 @@ input.form-control {
     font-size: 11.5px;
     position: absolute;
 }
+
+.div-hover:hover {
+    background-color: rgba(157, 157, 157, 0.2);
+}
+
+.portfolioFilter a:hover {
+    background-color: #00B2A3;
+}
+
+.portfolioFilter a:focus {
+    outline: none;
+}
+
+.portfolioFilter {
+    padding-bottom: 10px;
+}
+
+.portfolioFilter a {
+    margin-right: 6px;
+    color: #666;
+    text-decoration: none;
+    border: 1px solid #ccc;
+    padding: 4px 15px;
+    border-radius: 50px;
+    display: inline-block;
+}
+
+.portfolioFilter a.current {
+    background: #1e1e1e !important;
+    border: 1px solid #1e1e1e !important;
+    color: #f9f9f9 !important;
+}
+
+.isotope-item {
+    z-index: 2 !important;
+}
+
+.isotope-hidden.isotope-item {
+    pointer-events: none !important;
+    z-index: 1 !important;
+}
+
+.isotope,
+.isotope .isotope-item {
+    /* change duration value to whatever you like */
+    -webkit-transition-duration: 0.8s !important;
+    -moz-transition-duration: 0.8s !important;
+    transition-duration: 0.8s !important;
+}
+
+.isotope {
+    -webkit-transition-property: height, width !important;
+    -moz-transition-property: height, width !important;
+    transition-property: height, width !important;
+}
+
+.isotope .isotope-item {
+    -webkit-transition-property: -webkit-transform, opacity !important;
+    -moz-transition-property: -moz-transform, opacity !important;
+    transition-property: transform, opacity !important;
+}
