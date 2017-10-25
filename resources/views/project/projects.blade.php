@@ -50,10 +50,19 @@
                                     <div class="tse-scrollable wrapper">
                                         <div style="overflow-y: auto; max-height: 450px;" id="style-11">
                                             <div v-for="notify in allNotifications" class="div-hover">
-                                                <li class="dropdown-item" style="padding-top: 15px; padding-left: 15px;"><b>@{{notify.data['user']['name']}}</b> <span
+                                                <li class="dropdown-item"
+                                                    style="padding-top: 15px; padding-left: 15px;">
+                                                    <div class="image__notify left-div">
+                                                        <img src="uploads/images/@{{ notify.data['newProject']['image'] }}"
+                                                             alt="@{{ notify.data['newProject']['image'] }}">
+                                                    </div>
+                                                    <div class="message__notify right-div">
+                                                        <b>@{{notify.data['user']['name']}}</b> <span
                                                             style="color: #18ce0f;">Creat</span> New APP : <br/>@{{notify.data['newProject']['title']}}<br/><span
-                                                            class="float-right" style="font-size: 80%; color: #636c72;"><i
+                                                            class="float-right"
+                                                            style="font-size: 80%; color: #636c72; padding-top: 7px;"><i
                                                                 class="fa fa-clock-o" aria-hidden="true"></i> @{{notify.created_at | myOwnTime}}</span>
+                                                    </div>
                                                     <div style="padding-bottom: 20px;"></div>
                                                 </li>
                                             </div>

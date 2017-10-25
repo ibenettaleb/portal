@@ -348,7 +348,7 @@ input.form-control {
 }
 
 .div-hover:hover {
-    background-color: rgba(157, 157, 157, 0.2);
+    background-color: rgba(157, 157, 157, 0.05);
 }
 
 .portfolioFilter a:hover {
@@ -409,14 +409,14 @@ input.form-control {
 }
 
 .header__notify {
-    height: 30px;
-    padding-top: 5px;
+    height: 40px;
+    padding-top: 9px;
     padding-left: 15px;
     margin-right: 0;
     margin-left: 0;
-    background-color: #00B2A3;
-    box-shadow: 0 -4px 20px 0 rgba(0, 0, 0, 0.05), 1px -4px 20px 0 rgba(0, 0, 0, 0.05);
-    color: #FFF;
+    background-color: #FFFFFF;
+    border-bottom: 0.5px solid #9d9d9d;
+    color: #000000;
     cursor: text;
 }
 
@@ -429,4 +429,30 @@ input.form-control {
 .footer__notify:hover {
     color: #007791;
     cursor: pointer;
+}
+
+.image__notify {
+    height: 80px;
+    width: 80px;
+}
+.image__notify img {
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+}
+
+.message__notify {
+
+}
+
+.left-div {
+    float: left;
+    margin-right: 8px;
+}
+.right-div {
+    margin-left: 90px;
+}
+
+.dropdown-item:hover {
+    background-color: rgba(255, 255, 255, 0.05);
 }
