@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <body class="index-page" style="margin-top: 60px;" id="style-11">
+    <body class="index-page style-11" style="margin-top: 60px;">
     <!-- Start Loading -->
     <div class="preloader">
         <img src="{{ asset('assets/img/loading.gif') }}" width="350" alt="Loading...">
@@ -50,21 +50,23 @@
                                     <div class="tse-scrollable wrapper">
                                         <div style="overflow-y: auto; max-height: 450px;" id="style-11">
                                             <div v-for="notify in allNotifications" class="div-hover">
-                                                <li class="dropdown-item"
-                                                    style="padding-top: 15px; padding-left: 15px;">
-                                                    <div class="image__notify left-div">
-                                                        <img src="uploads/images/@{{ notify.data['newProject']['image'] }}"
-                                                             alt="@{{ notify.data['newProject']['image'] }}">
-                                                    </div>
-                                                    <div class="message__notify right-div">
-                                                        <b>@{{notify.data['user']['name']}}</b> <span
-                                                            style="color: #18ce0f;">Creat</span> New APP : <br/>@{{notify.data['newProject']['title']}}<br/><span
-                                                            class="float-right"
-                                                            style="font-size: 80%; color: #636c72; padding-top: 7px;"><i
-                                                                class="fa fa-clock-o" aria-hidden="true"></i> @{{notify.created_at | myOwnTime}}</span>
-                                                    </div>
-                                                    <div style="padding-bottom: 20px;"></div>
-                                                </li>
+                                                <a href="@{{notify.data['newProject']['link']}}" id="linkNotify" target="_blank">
+                                                    <li class="dropdown-item"
+                                                        style="padding-top: 15px; padding-left: 15px;">
+                                                        <div class="image__notify left-div">
+                                                            <img src="uploads/images/@{{ notify.data['newProject']['image'] }}"
+                                                                alt="@{{ notify.data['newProject']['image'] }}">
+                                                        </div>
+                                                        <div class="message__notify right-div">
+                                                            <b>@{{notify.data['user']['name']}}</b> <span
+                                                                style="color: #18ce0f;">Creat</span> New APP : <br/>@{{notify.data['newProject']['title']}}<br/><span
+                                                                class="float-right"
+                                                                style="font-size: 80%; color: #636c72; padding-top: 7px;"><i
+                                                                    class="fa fa-clock-o" aria-hidden="true"></i> @{{notify.created_at | myOwnTime}}</span>
+                                                        </div>
+                                                        <div style="padding-bottom: 20px;"></div>
+                                                    </li>
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
@@ -164,12 +166,12 @@
                             <hr/>
                         </div>
                         <div class="space-20"></div>
-                        <div class="row font-style" id="allApp">
+                        <div class="row font-style allApp2" id="allApp">
                             @if(!$user->ldap->inGroup('Admin-Portal'))
                                 @foreach($projects->sortByDesc('created_at') as $project)
                                     @foreach($project->find($project->id)->departments as $department)
                                         @if($department->name == $myGroup || $department->id === 1)
-                                            <div id="{{$project->id}}" class="col-md-4 {{ $project -> email }}">
+                                            <div id="{{$project->id}}" class="col-md-4 {{ $project -> email }} element-item">
                                                 <article class="card">
                                                     <header class="card__thumb">
                                                         <img src="uploads/images/{{ $project -> image }}"
@@ -189,7 +191,7 @@
                                                            id="style-11 jsearch-field">{{ $project -> description }}</p>
                                                     </div>
                                                     <footer class="card__footer">
-                                                        <a class="btn btn-neutral float-right"
+                                                        <a class="btn btn-neutral float-right" style="background-color:transparent; padding-bottom: 0px;"
                                                            href="{{ $project -> link }}" target="_blank">
                                                             <h6 style="margin-top: 6px;">Open
                                                                 <span style="display:inline-block; width: YOURWIDTH;"></span>
@@ -205,7 +207,7 @@
                                 @endforeach
                             @elseif($user->ldap->inGroup('Admin-Portal'))
                                 @foreach($projects->sortByDesc('created_at') as $project)
-                                    <div id="{{$project->id}}" class="col-md-4 {{ $project -> email }} element-item ">
+                                    <div id="{{$project->id}}" class="col-md-4 {{ $project -> email }} element-item">
                                         <article class="card">
                                             <header class="card__thumb">
                                                 <img src="uploads/images/{{ $project -> image }}"

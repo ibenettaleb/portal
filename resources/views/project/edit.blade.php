@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <body class="index-page" id="edit">
+    <body class="index-page style-11" id="edit">
     <!-- Start Loading -->
     <div class="preloader">
         <img src="{{ asset('assets/img/loading.gif') }}" width="350" alt="Loading...">

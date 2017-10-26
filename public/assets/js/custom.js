@@ -5,54 +5,6 @@ let demo1 = $('select[name="duallistbox_demo1[]"]').bootstrapDualListbox({
     moveOnSelect: false
 });
 
-$(window).on('load', function () {
-    let $container = $('#allApp');
-    $('.portfolioFilter a').click(function () {
-        $('.portfolioFilter .current').removeClass('current');
-        $(this).addClass('current');
-
-        let selector = $(this).attr('data-filter');
-        $container.isotope({
-            filter: selector,
-            animationOptions: {
-                duration: 750,
-                easing: 'linear',
-                queue: false
-            }
-        });
-        return false;
-    });
-    $('#search').click(function(){
-        let qsRegex;
-        let $allApp = $container.isotope({
-            itemSelector: '.element-item',
-            layoutMode: 'masonry',
-            filter: function () {
-                return qsRegex ? $(this).text().match( qsRegex ) : true;
-            }
-        });
-        //use value of search field to filter
-        let $quicksearch = $('.quicksearch').on('paste copy cut keyup keydown', debounce( function () {
-            qsRegex = new RegExp( $quicksearch.val(), 'gi' );
-            $allApp.isotope();
-        }, 200 ) );
-        // debounce so filtering doesn't happen every millisecond
-        function debounce( fn, threshold ) {
-            let timeout;
-            return function debounced() {
-                if ( timeout ) {
-                    clearTimeout( timeout );
-                }
-                function delayed() {
-                    fn();
-                    timeout = null;
-                }
-                timeout = setTimeout( delayed, threshold || 100 );
-            }
-        }
-    });
-});
-
 $(".preloader").fadeOut(2000, function () {
     $(".content").fadeIn(2000);
 });
@@ -98,6 +50,71 @@ $(document).ready(function () {
     $(".hideInput2").click(function () {
         $(".inputCategory2").hide();
         $(".RestInput2").val("");
+    });
+    $(window).on('load', function () {
+        let qsRegex;
+        let buttonFilter;
+
+        $('.portfolioFilter a').click(function () {
+            $container = $('#allApp').isotope({
+                itemSelector: '.element-item',
+                animationOptions: {
+                    duration: 200,
+                    easing: 'linear',
+                    queue: false
+                },
+                layoutMode: 'masonry',
+                filter: function () {
+                    let $this = $(this);
+                    let searchResult = qsRegex ? $this.text().match(qsRegex) : true;
+                    let buttonResult = buttonFilter ? $this.is(buttonFilter) : true;
+                    return searchResult && buttonResult;
+                }
+            });
+            $('.portfolioFilter .current').removeClass('current');
+            $(this).addClass('current');
+
+            buttonFilter = $(this).attr('data-filter');
+            $container.isotope();
+        });
+
+        //use value of search field to filter
+        let $quicksearch = $('.quicksearch').on('paste copy cut keyup keydown', debounce(function () {
+            $container = $('#allApp').isotope({
+                itemSelector: '.element-item',
+                animationOptions: {
+                    duration: 200,
+                    easing: 'linear',
+                    queue: false
+                },
+                layoutMode: 'masonry',
+                filter: function () {
+                    let $this = $(this);
+                    let searchResult = qsRegex ? $this.text().match(qsRegex) : true;
+                    let buttonResult = buttonFilter ? $this.is(buttonFilter) : true;
+                    return searchResult && buttonResult;
+                }
+            });
+            qsRegex = new RegExp($quicksearch.val(), 'gi');
+            $container.isotope();
+        }, 200));
+
+        // debounce so filtering doesn't happen every millisecond
+        function debounce(fn, threshold) {
+            let timeout;
+            return function debounced() {
+                if (timeout) {
+                    clearTimeout(timeout);
+                }
+
+                function delayed() {
+                    fn();
+                    timeout = null;
+                }
+
+                timeout = setTimeout(delayed, threshold || 100);
+            }
+        }
     });
 });
 
@@ -162,11 +179,3 @@ function markNotificationAsRead(notificationCount) {
         $.get('/markAsRead');
     }
 }
-
-
-
-
-
-
-
-
