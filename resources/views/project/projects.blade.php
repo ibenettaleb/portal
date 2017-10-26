@@ -15,8 +15,7 @@
         <nav class="navbar navbar-toggleable-md bg-primary fixed-top">
             <div class="container">
                 <div class="navbar-translate">
-                    <a class="navbar-brand" href="#" rel="tooltip" title="University Mohammed VI Polytechnique"
-                       data-placement="bottom">
+                    <a class="navbar-brand" href="{{ url('app') }}" rel="tooltip">
                         <img src="{{ asset('assets/img/logo-Banner.png') }}" width="164" height="35" alt="logo UM6P">
                     </a>
                     <a href="{{ route('logout') }}"
@@ -111,7 +110,7 @@
                     <div class="container">
                         <div class="col-md-12 col-sm-12 content-center brand">
                             <div class="space-20"></div>
-                            <h3 class="text-center h3-seo"><b>MOHAMMED VI POLYTECHNIC UNIVERSITY<br><u>PORTAL</u></b>
+                            <h3 class="text-center h3-seo" style="margin-top: -24px;"><b>MOHAMMED VI POLYTECHNIC UNIVERSITY<br><u>PORTAL</u></b>
                             </h3>
                         </div>
                         @if(session()->has('success'))
@@ -183,7 +182,7 @@
                                                     </div>
                                                     <div class="card__body">
                                                         <div class="card__category">{{ $project -> email }}</div>
-                                                        <h2 class="card__title jsearch-field"><a
+                                                        <h2 class="card__title"><a
                                                                     href="{{ $project -> link }}"
                                                                     target="_blank">{{ $project -> title }}</a>
                                                         </h2>
@@ -219,7 +218,7 @@
                                             </div>
                                             <div class="card__body">
                                                 <div class="card__category">{{ $project -> email }}</div>
-                                                <h2 class="card__title jsearch-field"><a href="{{ $project -> link }}"
+                                                <h2 class="card__title"><a href="{{ $project -> link }}"
                                                                                          target="_blank">{{ $project -> title }}</a>
                                                 </h2>
                                                 <p class="card__description jsearch-field"
@@ -232,13 +231,13 @@
                                                     {{ method_field('DELETE') }}
                                                 </form>
                                                 <a href="{{ url('app/'.$project -> id.'/edit') }}"
-                                                   class="btn btn-primary btn-icon  btn-icon-mini btn-round"
-                                                   data-toggle="tooltip" data-placement="right" title="Edit APP">
+                                                   class="btn btn-primary btn-icon  btn-icon-mini"
+                                                style="border-radius: 1px;">
                                                     <i class="fa fa-pencil-square-o" aria-hidden="true"
                                                        style="color: #fff; padding-top: 5px;"></i>
                                                 </a>
                                                 <a class="btn btn-neutral"
-                                                   style="margin: auto; padding: 10px; width: 70%;"
+                                                   style="margin: auto; padding: 10px; width: 70%; background-color:transparent;"
                                                    href="{{ $project -> link }}" target="_blank">
                                                     <h6 style="margin-top: 6px;">Open
                                                         <span style="display:inline-block; width: YOURWIDTH;"></span>
@@ -246,8 +245,8 @@
                                                     </h6>
                                                 </a>
                                                 <button id="delete" type="button" data-id="{{$project->id}}"
-                                                        class="btn btn-danger btn-icon  btn-icon-mini btn-round float-right"
-                                                        data-toggle="tooltip" data-placement="left" title="Delete APP">
+                                                        class="btn btn-danger btn-icon  btn-icon-mini float-right"
+                                                        style="border-radius: 1px;">
                                                     <i class="fa fa-trash-o" aria-hidden="true"
                                                        style="color: #fff;"></i>
                                                 </button>

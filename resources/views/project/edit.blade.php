@@ -13,8 +13,7 @@
         <nav class="navbar navbar-toggleable-md bg-primary fixed-top">
             <div class="container">
                 <div class="navbar-translate">
-                    <a class="navbar-brand" href="#" rel="tooltip" title="University Mohammed VI Polytechnique"
-                       data-placement="bottom">
+                    <a class="navbar-brand" href="{{ url('app') }}">
                         <img src="{{ asset('assets/img/logo-Banner.png') }}" width="164" height="35" alt="logo UM6P">
                     </a>
                     <a href="{{ route('logout') }}"
@@ -105,9 +104,11 @@
                                                 </div>
                                             </div>
                                             <div class="space-10"></div>
-                                            <div>
-                                                <span>Select Category<br/></span>
-                                                <select class="form-control m-bot15" name="category_name">
+                                            <br id="selectspace2" class="space-20" style="display: none"></div>
+                                            <div class="form-group">
+                                                <label for="category">Select Category</label><br/>
+                                                <select class="form-control m-bot15" name="category_name"
+                                                        style="width: 338px; display: inline;" id="category">
                                                     @if ($listcategory->count())
                                                         @foreach($listcategory as $category)
                                                             <option value="{{ $category->category }}" {{ $selectedCategory == $category->category ? 'selected="selected"' : '' }}>{{ $category->category }}</option>
@@ -116,9 +117,8 @@
                                                 </select>
                                             </div>
                                             <div class="space-10"></div>
-                                            <br id="selectspace2" class="space-20" style="display: none"></div>
                                         <div>
-                                            <span>Select Department<br/></span>
+                                            <label for="department">Select Department</label><br/>
                                             <select class="form-control m-bot15 js-example-basic-multiple" id="data"
                                                     name="selectedDepartment[]" multiple="multiple"
                                                     style="width: 338px;">
@@ -129,7 +129,7 @@
                                                     @endforeach
                                                 @endif
                                             </select>
-                                            <span>(By default : All Department)</span>
+                                            <span class="text-muted"><br>(By default : All Department)</span>
                                         </div>
                                         <div class="space-10"></div>
                                         <div>

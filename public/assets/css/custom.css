@@ -26,7 +26,7 @@ input.form-control {
     z-index: 555;
     bottom: 20px;
     right: 20px;
-    border-radius: 10px;
+    border-radius: 1px;
     background-color: rgba(234, 186, 107, 0.7);
     border: 1px solid rgba(255, 255, 255, 0.15);
     color: #FFFFFF;
@@ -118,14 +118,14 @@ input.form-control {
     right: 20px;
     width: 45px;
     height: 45px;
-    background-color: #2DC7FF;
-    border-radius: 25%;
+    background-color: #00ABE7;
     color: #FFF;
     text-align: center;
     line-height: 13px;
     font-weight: bold;
     font-size: 16px;
     padding-top: 10px;
+    border-radius: 1px;
 }
 
 .card__date__day {
@@ -189,8 +189,8 @@ input.form-control {
     font-size: 11px;
     line-height: 25px;
     text-transform: uppercase;
-    background-color: #2DC7FF;
-    border-top-right-radius: 0.7em;
+    background-color: #00ABE7;
+    border-radius: 1px;
 }
 
 .card__title {

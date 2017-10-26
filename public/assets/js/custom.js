@@ -33,24 +33,6 @@ $(document).ready(function () {
     }
     $('.js-example-basic-multiple').select2();
     $('[rel="tooltip"]').tooltip();
-    $(".inputCategory").hide();
-    $(".showInput").click(function () {
-        $(".inputCategory").show();
-        $(".InputToFocus").focus();
-    });
-    $(".hideInput").click(function () {
-        $(".inputCategory").hide();
-        $(".RestInput").val("");
-    });
-    $(".inputCategory2").hide();
-    $(".showInput2").click(function () {
-        $(".inputCategory2").show();
-        $(".InputToFocus2").focus();
-    });
-    $(".hideInput2").click(function () {
-        $(".inputCategory2").hide();
-        $(".RestInput2").val("");
-    });
     $(window).on('load', function () {
         let qsRegex;
         let buttonFilter;

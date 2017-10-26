@@ -13,8 +13,7 @@
         <nav class="navbar navbar-toggleable-md bg-primary fixed-top">
             <div class="container">
                 <div class="navbar-translate">
-                    <a class="navbar-brand" href="#" rel="tooltip" title="University Mohammed VI Polytechnique"
-                       data-placement="bottom">
+                    <a class="navbar-brand" href="{{ url('app') }}">
                         <img src="{{ asset('assets/img/logo-Banner.png') }}" width="164" height="35" alt="logo UM6P">
                     </a>
                     <a href="{{ route('logout') }}"
@@ -113,21 +112,6 @@
                                                         @endforeach
                                                     @endif
                                                 </select>
-                                                <button type="button"
-                                                        class="btn btn-primary btn-icon  btn-icon-mini btn-round showInput"
-                                                        style="display: inline;">
-                                                    <i class="fa fa-plus" aria-hidden="true"></i>
-                                                </button>
-                                                <div class="inputCategory" style="display: inline;">
-                                                    <input type="text" placeholder="Type a Category"
-                                                           style="width: 238px; display: inline;"
-                                                           class="form-control InputToFocus RestInput">
-                                                    <button type="button"
-                                                            class="btn btn-success btn-icon  btn-icon-mini btn-round hideInput"
-                                                            style="display: inline;">
-                                                        <i class="fa fa-check" aria-hidden="true"></i>
-                                                    </button>
-                                                </div>
                                             </div>
                                             <div class="space-10"></div>
                                             <div class="form-group">
@@ -143,21 +127,6 @@
                                                         @endforeach
                                                     @endif
                                                 </select>
-                                                <button type="button"
-                                                        class="btn btn-primary btn-icon  btn-icon-mini btn-round showInput2"
-                                                        style="display: inline;">
-                                                    <i class="fa fa-plus" aria-hidden="true"></i>
-                                                </button>
-                                                <div class="inputCategory2" style="display: inline;">
-                                                    <input type="text" placeholder="Type a Department"
-                                                           style="width: 238px; display: inline;"
-                                                           class="form-control InputToFocus2 RestInput2">
-                                                    <button type="button"
-                                                            class="btn btn-success btn-icon btn-icon-mini btn-round hideInput2"
-                                                            style="display: inline;">
-                                                        <i class="fa fa-check" aria-hidden="true"></i>
-                                                    </button>
-                                                </div>
                                                 <span class="text-muted"><br>(By default : All Department)</span>
                                             </div>
                                             <div class="space-10"></div>
