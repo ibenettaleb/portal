@@ -30,7 +30,7 @@
                 <div class="navbar-collapse justify-content-end">
                     <ul class="navbar-nav">
                         <li class="hidden-sm-down">
-                            <a href="#" role="button" aria-expanded="false">
+                            <a href="#" style="text-decoration: none;" role="button" aria-expanded="false">
                                 Welcome, {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
                         </li>
@@ -232,7 +232,7 @@
                                                 </form>
                                                 <a href="{{ url('app/'.$project -> id.'/edit') }}"
                                                    class="btn btn-primary btn-icon  btn-icon-mini"
-                                                style="border-radius: 1px;">
+                                                style="border-radius: 2px;">
                                                     <i class="fa fa-pencil-square-o" aria-hidden="true"
                                                        style="color: #fff; padding-top: 5px;"></i>
                                                 </a>
@@ -246,7 +246,7 @@
                                                 </a>
                                                 <button id="delete" type="button" data-id="{{$project->id}}"
                                                         class="btn btn-danger btn-icon  btn-icon-mini float-right"
-                                                        style="border-radius: 1px;">
+                                                        style="border-radius: 2px;">
                                                     <i class="fa fa-trash-o" aria-hidden="true"
                                                        style="color: #fff;"></i>
                                                 </button>

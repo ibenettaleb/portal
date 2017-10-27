@@ -4,7 +4,7 @@
 
     <body class="login-page" style="margin-bottom: auto">
     <div class="page-header" filter-color="orange">
-        <div class="page-header-image" style="background-image:url({{ asset('assets/img/login.jpg') }})"></div>
+        <div class="page-header-image" id="image" style="background-image:url({{ asset('assets/img/login.jpg') }})"></div>
         <div class="container">
             <div class="col-md-4 content-center float-right">
                 <div class="card card-login card-plain" id="login__card">
@@ -19,7 +19,7 @@
                         <div>
                             <div class="input-group form-group-no-border input-lg{{ $errors->has('username') ? ' has-error' : '' }}">
                                 <span class="input-group-addon">
-                                    <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                                    <i class="fa fa-envelope-o" aria-hidden="true" style="opacity: 0.7"></i>
                                 </span>
                                 <input id="username" type="text" class="form-control" placeholder="E-mail Address..."
                                        name="username" value="{{ old('username') }}" required autofocus/>
@@ -27,7 +27,7 @@
                             </div>
                             <div class="input-group form-group-no-border input-lg{{ $errors->has('password') ? ' has-error' : '' }}">
                                 <span class="input-group-addon">
-                                    <i class="now-ui-icons ui-1_lock-circle-open"></i>
+                                    <i class="now-ui-icons ui-1_lock-circle-open" style="opacity: 0.7"></i>
                                 </span>
                                 <input id="password" type="password" placeholder="Password..." class="form-control"
                                        name="password" required/>

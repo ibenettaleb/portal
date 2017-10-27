@@ -125,7 +125,7 @@ input.form-control {
     font-weight: bold;
     font-size: 16px;
     padding-top: 10px;
-    border-radius: 1px;
+    border-radius: 6px;
 }
 
 .card__date__day {
@@ -190,7 +190,7 @@ input.form-control {
     line-height: 25px;
     text-transform: uppercase;
     background-color: #00ABE7;
-    border-radius: 1px;
+    border-top-right-radius: 6px;
 }
 
 .card__title {
@@ -466,4 +466,9 @@ input.form-control {
     cursor: pointer;
     left: 45px;
     margin-top: 9px;
+}
+
+#image{
+    filter: blur(3px);
+    -webkit-filter: blur(3px);
 }
