@@ -792,9 +792,9 @@ window._ = __webpack_require__(10);
  */
 
 try {
-    window.$ = window.jQuery = __webpack_require__(13);
+  window.$ = window.jQuery = __webpack_require__(13);
 
-    __webpack_require__(14);
+  __webpack_require__(14);
 } catch (e) {}
 
 /**
@@ -816,9 +816,9 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 var token = document.head.querySelector('meta[name="csrf-token"]');
 
 if (token) {
-    window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
+  window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
 } else {
-    console.error('CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token');
+  console.error('CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token');
 }
 
 /**
@@ -832,10 +832,10 @@ if (token) {
 window.Pusher = __webpack_require__(36);
 
 window.Echo = new __WEBPACK_IMPORTED_MODULE_0_laravel_echo___default.a({
-    broadcaster: 'pusher',
-    key: '580ca189b8fddd9cbbe3',
-    cluster: 'eu',
-    encrypted: true
+  broadcaster: 'pusher',
+  key: '580ca189b8fddd9cbbe3',
+  cluster: 'eu',
+  encrypted: true
 });
 
 /***/ }),
@@ -36672,6 +36672,8 @@ var normalizeComponent = __webpack_require__(38)
 var __vue_script__ = __webpack_require__(39)
 /* template */
 var __vue_template__ = __webpack_require__(40)
+/* template functional */
+  var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = null
 /* scopeId */
@@ -36681,13 +36683,13 @@ var __vue_module_identifier__ = null
 var Component = normalizeComponent(
   __vue_script__,
   __vue_template__,
+  __vue_template_functional__,
   __vue_styles__,
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources/assets/js/components/Example.vue"
-if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
-if (Component.options.functional) {console.error("[vue-loader] Example.vue: functional components are not supported with templates, they should use render functions.")}
+Component.options.__file = "resources\\assets\\js\\components\\Example.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {  return key !== "default" && key.substr(0, 2) !== "__"})) {  console.error("named exports are not supported in *.vue files.")}
 
 /* hot reload */
 if (false) {(function () {
@@ -36699,7 +36701,7 @@ if (false) {(function () {
     hotAPI.createRecord("data-v-00282f4c", Component.options)
   } else {
     hotAPI.reload("data-v-00282f4c", Component.options)
-  }
+' + '  }
   module.hot.dispose(function (data) {
     disposed = true
   })
@@ -36714,12 +36716,14 @@ module.exports = Component.exports
 
 /* globals __VUE_SSR_CONTEXT__ */
 
-// this module is a runtime utility for cleaner component module output and will
-// be included in the final webpack user bundle
+// IMPORTANT: Do NOT use ES2015 features in this file.
+// This module is a runtime utility for cleaner component module output and will
+// be included in the final webpack user bundle.
 
 module.exports = function normalizeComponent (
   rawScriptExports,
   compiledTemplate,
+  functionalTemplate,
   injectStyles,
   scopeId,
   moduleIdentifier /* server only */
@@ -36743,6 +36747,12 @@ module.exports = function normalizeComponent (
   if (compiledTemplate) {
     options.render = compiledTemplate.render
     options.staticRenderFns = compiledTemplate.staticRenderFns
+    options._compiled = true
+  }
+
+  // functional template
+  if (functionalTemplate) {
+    options.functional = true
   }
 
   // scopedId
@@ -36783,12 +36793,16 @@ module.exports = function normalizeComponent (
     var existing = functional
       ? options.render
       : options.beforeCreate
+
     if (!functional) {
       // inject component registration as beforeCreate hook
       options.beforeCreate = existing
         ? [].concat(existing, hook)
         : [hook]
     } else {
+      // for template-only hot-reload because in that case the render fn doesn't
+      // go through the normalizer
+      options._injectStyles = hook
       // register for functioal component in vue file
       options.render = function renderWithStyleInjection (h, context) {
         hook.call(context)
@@ -36873,7 +36887,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-00282f4c", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-00282f4c", module.exports)
   }
 }
 
@@ -36881,7 +36895,7 @@ if (false) {
 /* 41 */
 /***/ (function(module, exports) {
 
-throw new Error("Module build failed: ModuleBuildError: Module build failed: Error: ENOENT: no such file or directory, scandir '/var/www/html/portal/portal/node_modules/node-sass/vendor'\n    at Object.fs.readdirSync (fs.js:911:18)\n    at Object.getInstalledBinaries (/var/www/html/portal/portal/node_modules/node-sass/lib/extensions.js:124:13)\n    at foundBinariesList (/var/www/html/portal/portal/node_modules/node-sass/lib/errors.js:20:15)\n    at foundBinaries (/var/www/html/portal/portal/node_modules/node-sass/lib/errors.js:15:5)\n    at Object.module.exports.missingBinary (/var/www/html/portal/portal/node_modules/node-sass/lib/errors.js:45:5)\n    at module.exports (/var/www/html/portal/portal/node_modules/node-sass/lib/binding.js:15:30)\n    at Object.<anonymous> (/var/www/html/portal/portal/node_modules/node-sass/lib/index.js:14:35)\n    at Module._compile (module.js:624:30)\n    at Object.Module._extensions..js (module.js:635:10)\n    at Module.load (module.js:545:32)\n    at tryModuleLoad (module.js:508:12)\n    at Function.Module._load (module.js:500:3)\n    at Module.require (module.js:568:17)\n    at require (internal/module.js:11:18)\n    at Object.<anonymous> (/var/www/html/portal/portal/node_modules/sass-loader/lib/loader.js:3:14)\n    at Module._compile (module.js:624:30)\n    at Object.Module._extensions..js (module.js:635:10)\n    at Module.load (module.js:545:32)\n    at tryModuleLoad (module.js:508:12)\n    at Function.Module._load (module.js:500:3)\n    at Module.require (module.js:568:17)\n    at require (internal/module.js:11:18)\n    at loadLoader (/var/www/html/portal/portal/node_modules/loader-runner/lib/loadLoader.js:13:17)\n    at iteratePitchingLoaders (/var/www/html/portal/portal/node_modules/loader-runner/lib/LoaderRunner.js:169:2)\n    at iteratePitchingLoaders (/var/www/html/portal/portal/node_modules/loader-runner/lib/LoaderRunner.js:165:10)\n    at /var/www/html/portal/portal/node_modules/loader-runner/lib/LoaderRunner.js:173:18\n    at loadLoader (/var/www/html/portal/portal/node_modules/loader-runner/lib/loadLoader.js:36:3)\n    at iteratePitchingLoaders (/var/www/html/portal/portal/node_modules/loader-runner/lib/LoaderRunner.js:169:2)\n    at iteratePitchingLoaders (/var/www/html/portal/portal/node_modules/loader-runner/lib/LoaderRunner.js:165:10)\n    at /var/www/html/portal/portal/node_modules/loader-runner/lib/LoaderRunner.js:173:18\n    at runLoaders (/var/www/html/portal/portal/node_modules/webpack/lib/NormalModule.js:195:19)\n    at /var/www/html/portal/portal/node_modules/loader-runner/lib/LoaderRunner.js:364:11\n    at /var/www/html/portal/portal/node_modules/loader-runner/lib/LoaderRunner.js:170:18\n    at loadLoader (/var/www/html/portal/portal/node_modules/loader-runner/lib/loadLoader.js:27:11)\n    at iteratePitchingLoaders (/var/www/html/portal/portal/node_modules/loader-runner/lib/LoaderRunner.js:169:2)\n    at iteratePitchingLoaders (/var/www/html/portal/portal/node_modules/loader-runner/lib/LoaderRunner.js:165:10)\n    at /var/www/html/portal/portal/node_modules/loader-runner/lib/LoaderRunner.js:173:18\n    at loadLoader (/var/www/html/portal/portal/node_modules/loader-runner/lib/loadLoader.js:36:3)\n    at iteratePitchingLoaders (/var/www/html/portal/portal/node_modules/loader-runner/lib/LoaderRunner.js:169:2)\n    at iteratePitchingLoaders (/var/www/html/portal/portal/node_modules/loader-runner/lib/LoaderRunner.js:165:10)\n    at /var/www/html/portal/portal/node_modules/loader-runner/lib/LoaderRunner.js:173:18\n    at loadLoader (/var/www/html/portal/portal/node_modules/loader-runner/lib/loadLoader.js:36:3)\n    at iteratePitchingLoaders (/var/www/html/portal/portal/node_modules/loader-runner/lib/LoaderRunner.js:169:2)\n    at iteratePitchingLoaders (/var/www/html/portal/portal/node_modules/loader-runner/lib/LoaderRunner.js:165:10)\n    at /var/www/html/portal/portal/node_modules/loader-runner/lib/LoaderRunner.js:173:18\n    at loadLoader (/var/www/html/portal/portal/node_modules/loader-runner/lib/loadLoader.js:36:3)\n    at iteratePitchingLoaders (/var/www/html/portal/portal/node_modules/loader-runner/lib/LoaderRunner.js:169:2)\n    at runLoaders (/var/www/html/portal/portal/node_modules/loader-runner/lib/LoaderRunner.js:362:2)\n    at NormalModule.doBuild (/var/www/html/portal/portal/node_modules/webpack/lib/NormalModule.js:182:3)\n    at NormalModule.build (/var/www/html/portal/portal/node_modules/webpack/lib/NormalModule.js:275:15)\n    at Compilation.buildModule (/var/www/html/portal/portal/node_modules/webpack/lib/Compilation.js:149:10)\n    at moduleFactory.create (/var/www/html/portal/portal/node_modules/webpack/lib/Compilation.js:447:10)\n    at factory (/var/www/html/portal/portal/node_modules/webpack/lib/NormalModuleFactory.js:241:5)\n    at applyPluginsAsyncWaterfall (/var/www/html/portal/portal/node_modules/webpack/lib/NormalModuleFactory.js:94:13)\n    at /var/www/html/portal/portal/node_modules/tapable/lib/Tapable.js:268:11\n    at NormalModuleFactory.params.normalModuleFactory.plugin (/var/www/html/portal/portal/node_modules/webpack/lib/CompatibilityPlugin.js:52:5)\n    at NormalModuleFactory.applyPluginsAsyncWaterfall (/var/www/html/portal/portal/node_modules/tapable/lib/Tapable.js:272:13)\n    at resolver (/var/www/html/portal/portal/node_modules/webpack/lib/NormalModuleFactory.js:69:10)\n    at process.nextTick (/var/www/html/portal/portal/node_modules/webpack/lib/NormalModuleFactory.js:194:7)\n    at _combinedTickCallback (internal/process/next_tick.js:131:7)");
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);

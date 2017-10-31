@@ -472,3 +472,35 @@ input.form-control {
     filter: blur(3px);
     -webkit-filter: blur(3px);
 }
+
+div .modal-dialog {
+    max-width: 320px;
+}
+
+#btn__create__category {
+    margin-top: -48px;
+    float: right;
+    margin-right: 310px;
+    width: 38px;
+    height: 38px;
+}
+
+#btn__create__category i {
+    font-size: 16px;
+}
+
+h6 .modal-title {
+    margin-top: 0;
+}
+
+#btn__create__department {
+    margin-top: -37px;
+    float: right;
+    margin-right: 310px;
+    width: 38px;
+    height: 38px;
+}
+
+#btn__create__department i {
+    font-size: 16px;
+}

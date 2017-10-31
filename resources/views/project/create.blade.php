@@ -106,20 +106,18 @@
                                                 <label for="category">Select Category</label><br/>
                                                 <select class="form-control m-bot15" name="category_name"
                                                         style="width: 338px; display: inline;" id="category">
-                                                    @if ($listcategory->count())
-                                                        @foreach($listcategory as $category)
-                                                            <option value="{{ $category->category }}">{{ $category->category }}</option>
-                                                        @endforeach
-                                                    @endif
+                                                    <option v-for="category in allCategory" v-bind:value>@{{ category.category }}</option>
                                                 </select>
                                             </div>
+                                            @component('project.Modal.category')
+                                            @endcomponent
                                             <div class="space-10"></div>
                                             <div class="form-group">
                                                 <label for="department">Select Department</label><br/>
                                                 <select id="department"
                                                         class="form-control m-bot15 js-example-basic-multiple"
                                                         name="selectedDepartment[]" multiple="multiple"
-                                                        style="width: 338px;">
+                                                        style="width: 338px; height: 34px;">
                                                     @if ($listdepartment->count())
                                                         @foreach($listdepartment as $department)
                                                             <option :disabled="{{$department->id}} == 1 ? true : false"
@@ -128,6 +126,8 @@
                                                     @endif
                                                 </select>
                                                 <span class="text-muted"><br>(By default : All Department)</span>
+                                                @component('project.Modal.department')
+                                                @endcomponent
                                             </div>
                                             <div class="space-10"></div>
                                             <div>

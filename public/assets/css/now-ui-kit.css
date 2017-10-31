@@ -2809,10 +2809,10 @@ Created using IcoMoon - icomoon.io
   border: none;
   box-shadow: 0px 10px 50px 0px rgba(0, 0, 0, 0.5); }
 .modal-content .modal-header {
-  border-bottom: none;
+  border-bottom: solid 0.01em #9d9d9d;
   padding-top: 24px;
   padding-right: 24px;
-  padding-bottom: 0;
+  padding-bottom: 20px;
   padding-left: 24px; }
 .modal-content .modal-header button {
   position: absolute;
@@ -2823,6 +2823,8 @@ Created using IcoMoon - icomoon.io
   margin-top: 5px;
   margin-bottom: 0; }
 .modal-content .modal-body {
+  border-bottom: solid 0.01em #9d9d9d;
+  margin-bottom: 18px;
   padding-top: 24px;
   padding-right: 24px;
   padding-bottom: 16px;
@@ -2920,7 +2922,9 @@ Created using IcoMoon - icomoon.io
   transform: translate(0, 30%); }
 .modal .modal-header .close {
   color: #FF3636;
-  text-shadow: none; }
+  text-shadow: none;
+  margin-top: -15px;
+  font-size: 35px; }
 .modal .modal-header .close:hover, .modal .modal-header .close:focus {
   opacity: 1; }
 

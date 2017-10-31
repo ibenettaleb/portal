@@ -83,7 +83,7 @@ class ProjectController extends Controller
         $user = Auth::user();
         $newProject = new Project();
         $newProject->title = $request->input('title');
-        $newProject->link = $request->input('link');;
+        $newProject->link = $request->input('link');
         $newProject->description = $request->input('description');
         $newProject->email = $request->input('category_name');
         if ($request->hasFile('project_image')) {
@@ -114,6 +114,13 @@ class ProjectController extends Controller
         }
 
         return redirect('app');
+    }
+
+    public function createCategory(Request $request) {
+        $user = Auth::user();
+        $newCategory = new Category();
+        $newCategory->category = $request->get('category_value');
+        $newCategory->save();
     }
 
     public function edit($id) {

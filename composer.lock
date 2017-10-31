@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "a287e1acee8b7d6a6fd8abb6bf46c844",
+    "content-hash": "3550aada5a0b9b0bf627d259bb69e6b4",
     "packages": [
         {
             "name": "adldap2/adldap2",
@@ -1694,6 +1694,54 @@
                 "random"
             ],
             "time": "2017-03-13T16:27:32+00:00"
+        },
+        {
+            "name": "php-junior/laravel-html-encrypt",
+            "version": "v1.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/PHPJunior/laravel-html-encrypt.git",
+                "reference": "1b35c94d5d759defc041cb49e00615220041a086"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/PHPJunior/laravel-html-encrypt/zipball/1b35c94d5d759defc041cb49e00615220041a086",
+                "reference": "1b35c94d5d759defc041cb49e00615220041a086",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6.4"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "PhpJunior\\LaravelHtmlEncrypt\\LaravelHtmlEncryptServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "PhpJunior\\LaravelHtmlEncrypt\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nyi Nyi Lwin",
+                    "email": "nyinyilwin1992@hotmail.com"
+                }
+            ],
+            "description": "Simple Html Encrypt for Laravel",
+            "keywords": [
+                "encrypt",
+                "html",
+                "laravel"
+            ],
+            "time": "2017-10-12T12:12:01+00:00"
         },
         {
             "name": "psr/http-message",

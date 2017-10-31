@@ -20,6 +20,7 @@ Route::get('/', 'ProjectController@index');
 
 //Other Route
 Route::get('destroy','ProjectController@destroy');
+Route::post('createCategory', 'ProjectController@createCategory');
 
 Route::get('pagenotfound', ['as' => 'notfound', 'uses' => 'ProjectController@pagenotfound']);
 
@@ -32,6 +33,11 @@ Route::get('/markAsRead', function () {
 Route::get('/Notifications', function () {
     $user = \Illuminate\Support\Facades\Auth::user();
     return $user->unreadNotifications;
+});
+
+Route::get('/getCategory', function (){
+    $user = \Illuminate\Support\Facades\Auth::user();
+    return $listCategory = \App\Category::all();
 });
 
 });
