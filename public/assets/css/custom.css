@@ -504,3 +504,22 @@ h6 .modal-title {
 #btn__create__department i {
     font-size: 16px;
 }
+
+#refresh__button {
+    padding-right: 15px;
+    cursor: pointer;
+}
+
+#refresh__button:hover {
+    color: #007791;
+}
+
+#no__notify__div {
+    height: 200px;
+    width: 100%;
+}
+
+#no__notify__div li {
+    text-align: center;
+    padding-top: 85px;
+}

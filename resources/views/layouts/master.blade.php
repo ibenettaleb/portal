@@ -17,11 +17,11 @@
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap-duallistbox.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/now-ui-kit.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/demo.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/font-awesome/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/font-awesome/css/font-awesome.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/sweetalert.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css"/>
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap-notifications.css') }}">
-    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="{{ asset('assets/css/font-awesome.min.css')  }}">
     <link rel="stylesheet" href="{{ asset('assets/css/custom.css')  }}">
 </head>
 @yield('content')

@@ -8,17 +8,39 @@ new Vue({
         countNotify: 0
     },
 
-    methods: {},
-
-    ready: function () {
-        let self = this;
-        let getNewNotifications = function () {
+    methods: {
+        //mark All as Read
+        markNotificationAsRead: function(notificatoinCount) {
+            let self = this;
+            if (notificatoinCount !== '0') {
+                $.get('/markAsRead');
+            }
+            $('#notification').removeClass('badge1');
             $.get('/Notifications', function (Response) {
                 self.allNotifications = Response;
                 self.countNotify = self.allNotifications.length;
             });
+        }
+    },
+
+    ready: function () {
+        let self = this;
+
+        //get All Notifiction
+        let getNewNotifications = function () {
+            $.get('/Notifications', function (Response) {
+                self.allNotifications = Response;
+                self.countNotify = self.allNotifications.length;
+                if (self.countNotify == 0) {
+                    $('#notification').removeClass('badge1');
+                }
+            });
         };
-        setInterval(getNewNotifications, 2000);
+
+        setTimeout(getNewNotifications, 200);
+
+        //Hover Event to get All Notify
+        $("#refresh__button").hover(getNewNotifications);
 
         Vue.filter('myOwnTime', function (value) {
             return moment(value).fromNow();

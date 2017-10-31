@@ -161,8 +161,6 @@ $(document).on('click', 'button#delete', function (e) {
         });
 });
 
-function markNotificationAsRead(notificationCount) {
-    if (notificationCount !== '0') {
-        $.get('/markAsRead');
-    }
-}
+$('.dropdown-menu').click(function (e) {
+   e.stopPropagation();
+});

@@ -38,13 +38,18 @@
                             <li class="dropdown hidden-sm-down" style="padding: 0px 20px;">
                                 <div class="dropdown-toggle" data-toggle="dropdown"
                                      id="dropdownlist">
-                                    <i class="fa fa-bell-o badge1" data-badge="@{{ countNotify }}" id="notification"
-                                       aria-hidden="true"></i>
+                                    <div class="faa-parent animated-hover">
+                                        <i class="fa fa-bell faa-ring badge1" data-badge="@{{ countNotify }}" id="notification"
+                                           aria-hidden="true"></i>
+                                    </div>
                                 </div>
                                 <ul class="dropdown-menu"
                                     style="padding-top: 0px; padding-bottom:0px; margin-left: 20px;">
                                     <header class="header__notify">
                                         You Have @{{allNotifications.length}} Notifications
+                                        <span class="float-right faa-parent animated-hover" id="refresh__button">
+                                            <i class="fa fa-refresh faa-spin" aria-hidden="true"></i>
+                                        </span>
                                     </header>
                                     <div class="tse-scrollable wrapper">
                                         <div style="overflow-y: auto; max-height: 450px;" id="style-11">
@@ -69,11 +74,14 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div v-if="allNotifications.length ==0">
-                                        <li class="dropdown-item">No unread Notifications</li>
+                                    <div v-if="allNotifications.length ==0" id="no__notify__div">
+                                        <li class="dropdown-item">
+                                            <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                                            No unread Notifications
+                                        </li>
                                     </div>
                                     <footer class="footer__notify" v-if="allNotifications.length != 0"
-                                            onclick="markNotificationAsRead(@{{allNotifications.length}})">
+                                            v-on:click="markNotificationAsRead(allNotifications.length)">
                                         Mark All as Read
                                     </footer>
                                 </ul>
@@ -186,8 +194,7 @@
                                                                     href="{{ $project -> link }}"
                                                                     target="_blank">{{ $project -> title }}</a>
                                                         </h2>
-                                                        <p class="card__description"
-                                                           id="style-11 jsearch-field">{{ $project -> description }}</p>
+                                                        <p class="card__description style-11">{{ $project -> description }}</p>
                                                     </div>
                                                     <footer class="card__footer">
                                                         <a class="btn btn-neutral float-right" style="background-color:transparent; padding-bottom: 0px;"
@@ -221,8 +228,7 @@
                                                 <h2 class="card__title"><a href="{{ $project -> link }}"
                                                                                          target="_blank">{{ $project -> title }}</a>
                                                 </h2>
-                                                <p class="card__description jsearch-field"
-                                                   id="style-11">{{ $project -> description }}</p>
+                                                <p class="card__description style-11">{{ $project -> description }}</p>
                                             </div>
                                             <footer class="card__footer">
                                                 <form class="form" id="deletePortal"

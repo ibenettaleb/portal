@@ -104,7 +104,7 @@
                                             <div id="selectspace" class="space-20" style="display: none;"></div>
                                             <div class="form-group">
                                                 <label for="category">Select Category</label><br/>
-                                                <select class="form-control m-bot15" name="category_name"
+                                                <select class="form-control custom-select-sm" name="category_name"
                                                         style="width: 338px; display: inline;" id="category">
                                                     <option v-for="category in allCategory" v-bind:value>@{{ category.category }}</option>
                                                 </select>
